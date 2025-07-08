@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Download, Github, Mail, MessageSquare, ExternalLink } from 'lucide-react';
 import { useTheme } from './ThemeContext';
+import profileImage from '../assets/profile.jpg.jpeg';
 
 const Hero: React.FC = () => {
   const { darkMode } = useTheme();
@@ -157,7 +158,7 @@ const Hero: React.FC = () => {
                   {/* Main Image */}
                   <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 backdrop-blur-sm">
                     <img
-                      src="/src/assets/profile.jpg.jpeg"
+                      src={profileImage}
                       alt="Mahakpreet Kour"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
