@@ -63,11 +63,11 @@ const About: React.FC = () => {
           <div className="inline-block p-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mb-6 shadow-2xl hover:scale-110 transition-transform duration-500">
             <GraduationCap className="w-8 h-8 text-white" />
           </div>
-          <h2 className={`text-5xl md:text-6xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'} bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600`}>
+          <h2 className={`text-5xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600`}>
             About Me
           </h2>
           <div className="w-32 h-2 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 mx-auto rounded-full mb-8 shadow-xl"></div>
-          <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-4xl mx-auto leading-relaxed`}>
+          <p className={`text-xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed`}>
             Transforming ideas into reality through cutting-edge technology and innovative solutions
           </p>
         </div>
@@ -97,10 +97,10 @@ const About: React.FC = () => {
                     <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full opacity-20 blur-lg group-hover:opacity-40 transition-opacity duration-500"></div>
                   </div>
                   <div>
-                    <h3 className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'} mb-2`}>
+                    <h3 className={`text-3xl font-bold text-gray-900 dark:text-white mb-2`}>
                       {personalInfo.name}
                     </h3>
-                    <p className={`text-lg ${darkMode ? 'text-purple-400' : 'text-purple-600'} font-semibold`}>
+                    <p className={`text-lg text-purple-600 dark:text-purple-400 font-semibold`}>
                       {personalInfo.year} • {personalInfo.university}
                     </p>
                   </div>
@@ -109,20 +109,20 @@ const About: React.FC = () => {
                 <div className="space-y-6">
                   <div className={`flex items-center gap-4 p-4 rounded-2xl ${darkMode ? 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/30' : 'bg-gradient-to-r from-purple-100/80 to-pink-100/80 border border-purple-300/50'}`}>
                     <MapPin className="w-6 h-6 text-purple-600" />
-                    <span className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-700'} font-medium`}>
+                    <span className={`text-lg text-gray-700 dark:text-gray-300 font-medium`}>
                       {personalInfo.location}
                     </span>
                   </div>
                   <div className={`flex items-center gap-4 p-4 rounded-2xl ${darkMode ? 'bg-gradient-to-r from-pink-500/20 to-red-500/20 border border-pink-400/30' : 'bg-gradient-to-r from-pink-100/80 to-red-100/80 border border-pink-300/50'}`}>
                     <Heart className="w-6 h-6 text-pink-600" />
-                    <span className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-700'} font-medium`}>
+                    <span className={`text-lg text-gray-700 dark:text-gray-300 font-medium`}>
                       Passionate about Innovation & AI
                     </span>
                   </div>
                 </div>
 
                 <div className={`mt-8 p-6 rounded-2xl ${darkMode ? 'bg-gray-700/50 border-gray-500/40' : 'bg-gradient-to-r from-blue-50/90 to-purple-50/90 border-blue-300/60'} border`}>
-                  <p className={`text-lg leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                  <p className={`text-lg leading-relaxed text-gray-700 dark:text-gray-300`}>
                     {personalInfo.bio}
                   </p>
                 </div>
@@ -142,7 +142,7 @@ const About: React.FC = () => {
                   <div className="p-3 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl shadow-lg">
                     <Lightbulb className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  <h3 className={`text-2xl font-bold text-gray-900 dark:text-white`}>
                     Fun Facts & Achievements
                   </h3>
                 </div>
@@ -152,7 +152,7 @@ const About: React.FC = () => {
                       <div className="p-2 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg shadow-md">
                         <Rocket className="w-4 h-4 text-white" />
                       </div>
-                      <span className={`${darkMode ? 'text-gray-300' : 'text-gray-700'} font-medium`}>{fact}</span>
+                      <span className={`text-gray-700 dark:text-gray-300 font-medium`}>{fact}</span>
                     </div>
                   ))}
                 </div>
@@ -174,7 +174,7 @@ const About: React.FC = () => {
                   <div className="p-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-lg">
                     <Code className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  <h3 className={`text-3xl font-bold text-gray-900 dark:text-white`}>
                     Technologies I Master
                   </h3>
                 </div>
@@ -186,7 +186,7 @@ const About: React.FC = () => {
                         <div className={`p-3 bg-gradient-to-r ${category.gradient} rounded-xl shadow-lg group-hover/tech:scale-110 transition-transform duration-300`}>
                           {category.icon}
                         </div>
-                        <h4 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'} group-hover/tech:text-transparent group-hover/tech:bg-clip-text group-hover/tech:bg-gradient-to-r group-hover/tech:${category.gradient} transition-all duration-300`}>
+                        <h4 className={`text-xl font-bold text-gray-900 dark:text-white group-hover/tech:text-transparent group-hover/tech:bg-clip-text group-hover/tech:bg-gradient-to-r group-hover/tech:${category.gradient} transition-all duration-300`}>
                           {category.name}
                         </h4>
                       </div>
@@ -194,11 +194,7 @@ const About: React.FC = () => {
                         {category.techs.map((tech, techIndex) => (
                           <span
                             key={techIndex}
-                            className={`px-4 py-3 rounded-full text-sm font-semibold ${
-                              darkMode 
-                                ? 'bg-gray-700/80 text-gray-200 border border-gray-500/60' 
-                                : 'bg-gray-100/90 text-gray-800 border border-gray-300/70'
-                            } hover:bg-gradient-to-r hover:${category.gradient} hover:text-white hover:border-transparent hover:shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer transform-gpu`}
+                            className={`px-4 py-3 rounded-full text-sm font-semibold bg-gray-100/90 text-gray-800 border border-gray-300/70 dark:bg-gray-700/80 dark:text-gray-200 dark:border-gray-500/60`}
                           >
                             {tech}
                           </span>

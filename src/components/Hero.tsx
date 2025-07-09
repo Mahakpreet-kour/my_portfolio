@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { ChevronDown, Download, Github, Mail, MessageSquare, ExternalLink } from 'lucide-react';
 import { useTheme } from './ThemeContext';
 import profileImage from '../assets/profile.jpg.jpeg';
+import profilePic from '../assets/profile.jpg';
+import VideoResume from './VideoResume';
 
 const Hero: React.FC = () => {
   const { darkMode } = useTheme();
   const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
+  const [showVideo, setShowVideo] = useState(false);
 
   const texts = [
     'Building the Core, AI, and Innovation',
@@ -174,6 +177,17 @@ const Hero: React.FC = () => {
                       <ExternalLink className="w-5 h-5 text-white" />
                     </div>
                   </div>
+                  {/* Video Icon Button below profile image */}
+                  <button
+                    onClick={() => setShowVideo(true)}
+                    className="absolute left-1/2 -bottom-8 -translate-x-1/2 bg-gradient-to-r from-purple-600 to-pink-600 text-white p-4 rounded-full shadow-lg hover:scale-110 hover:bg-pink-700 transition-all duration-300 border-4 border-white dark:border-slate-800 z-10"
+                    title="Watch Video Resume"
+                  >
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+                      <polygon points="10,8 16,12 10,16" fill="currentColor" />
+                    </svg>
+                  </button>
                 </div>
                 
                 {/* Floating Tech Icons */}
@@ -199,6 +213,21 @@ const Hero: React.FC = () => {
           <ChevronDown className="w-8 h-8 text-white/60" />
         </div>
       </div>
+
+      {/* Modal for Video Resume */}
+      {showVideo && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl max-w-2xl w-full p-6 relative animate-fadeInUp">
+            <button
+              className="absolute top-4 right-4 text-gray-500 hover:text-red-500 text-2xl font-bold"
+              onClick={() => setShowVideo(false)}
+            >
+              &times;
+            </button>
+            <VideoResume />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
