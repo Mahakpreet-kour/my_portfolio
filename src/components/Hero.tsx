@@ -51,14 +51,17 @@ const Hero: React.FC = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Enhanced Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 dark:from-purple-950 dark:via-blue-950 dark:to-indigo-950">
+      {/* Enhanced Animated Background with consistent color scheme */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-pink-900 dark:from-slate-950 dark:via-purple-950 dark:to-pink-950">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%239C92AC%22 fill-opacity=%220.1%22%3E%3Cpath d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+        
+        {/* Animated Gradient Overlay with consistent colors */}
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 via-pink-600/20 to-blue-600/20 animate-pulse"></div>
       </div>
 
-      {/* Enhanced Floating particles with 3D effect */}
+      {/* Enhanced Floating particles with consistent color scheme */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(30)].map((_, i) => (
+        {[...Array(20)].map((_, i) => (
           <div
             key={i}
             className="absolute animate-float-3d"
@@ -70,12 +73,12 @@ const Hero: React.FC = () => {
               zIndex: Math.floor(Math.random() * 10)
             }}
           >
-            <div className={`w-2 h-2 ${i % 3 === 0 ? 'bg-purple-400/40' : i % 3 === 1 ? 'bg-pink-400/40' : 'bg-blue-400/40'} rounded-full blur-sm animate-pulse`}></div>
+            <div className={`w-2 h-2 ${i % 4 === 0 ? 'bg-purple-400/50' : i % 4 === 1 ? 'bg-pink-400/50' : i % 4 === 2 ? 'bg-blue-400/50' : 'bg-indigo-400/50'} rounded-full blur-sm animate-pulse`}></div>
           </div>
         ))}
       </div>
 
-      {/* 3D Geometric Shapes */}
+      {/* 3D Geometric Shapes with consistent colors */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(8)].map((_, i) => (
           <div
@@ -89,7 +92,7 @@ const Hero: React.FC = () => {
               zIndex: Math.floor(Math.random() * 5)
             }}
           >
-            <div className={`w-8 h-8 ${i % 2 === 0 ? 'bg-gradient-to-br from-purple-500/20 to-pink-500/20' : 'bg-gradient-to-br from-blue-500/20 to-cyan-500/20'} rounded-lg rotate-45 blur-sm animate-pulse`}></div>
+            <div className={`w-8 h-8 ${i % 3 === 0 ? 'bg-gradient-to-br from-purple-500/30 to-pink-500/30' : i % 3 === 1 ? 'bg-gradient-to-br from-pink-500/30 to-blue-500/30' : 'bg-gradient-to-br from-blue-500/30 to-indigo-500/30'} rounded-lg rotate-45 blur-sm animate-pulse`}></div>
           </div>
         ))}
       </div>
@@ -99,14 +102,17 @@ const Hero: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Left Side - Text Content */}
           <div className="flex-1 text-center lg:text-left animate-fade-in">
-                      <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 animate-gradient">Mahakpreet Kour</span>
-          </h1>
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+              Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 animate-gradient">Mahakpreet Kour</span>
+            </h1>
             
+            {/* Fixed height container for stable typing animation */}
             <div className="h-24 flex items-center justify-center lg:justify-start mb-8">
-              <h2 className="text-2xl md:text-3xl font-medium text-gray-200 min-h-[3rem]">
-                {currentText}
-                <span className="animate-pulse">|</span>
+              <h2 className="text-2xl md:text-3xl font-medium text-gray-200">
+                <span className="inline-block min-w-[500px] text-left">
+                  {currentText}
+                  <span className="animate-pulse">|</span>
+                </span>
               </h2>
             </div>
 
@@ -118,7 +124,7 @@ const Hero: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
               <button 
                 onClick={scrollToProjects}
-                className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 flex items-center gap-2 animate-bounce-subtle"
+                className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 text-white rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 flex items-center gap-2 animate-bounce-subtle"
               >
                 <span>View My Projects</span>
                 <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
@@ -132,7 +138,7 @@ const Hero: React.FC = () => {
 
             <div className="flex justify-center lg:justify-start gap-6 mt-12">
               <a href="https://github.com/Mahakpreet-kour" target="_blank" rel="noopener noreferrer" 
-                 className="group p-3 bg-white/10 backdrop-blur-sm rounded-full transition-all duration-300 hover:bg-white/20 hover:scale-110 border border-white/20 hover:rotate-12">
+                 className="group p-3 bg-gradient-to-r from-purple-600/20 to-pink-600/20 backdrop-blur-sm rounded-full transition-all duration-300 hover:bg-gradient-to-r hover:from-purple-600/40 hover:to-pink-600/40 hover:scale-110 border border-purple-400/30 hover:border-purple-400/60 hover:rotate-12 shadow-lg hover:shadow-purple-500/25">
                 <Github className="w-6 h-6 text-white group-hover:text-purple-300 transition-colors" />
               </a>
               <a href="mailto:mahakmakkar621@gmail.com" 
@@ -146,7 +152,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Right Side - Profile Picture with Curl Effect */}
-          <div className="flex-1 flex justify-center lg:justify-end">
+          <div className="flex-1 flex justify-center lg:justify-end order-first lg:order-last">
             <div className="relative group">
               {/* Curl Effect Container */}
               <div className="relative transform rotate-3 hover:rotate-0 transition-transform duration-500">
@@ -180,7 +186,7 @@ const Hero: React.FC = () => {
                   {/* Video Icon Button below profile image */}
                   <button
                     onClick={() => setShowVideo(true)}
-                    className="absolute left-1/2 -bottom-8 -translate-x-1/2 bg-gradient-to-r from-purple-600 to-pink-600 text-white p-4 rounded-full shadow-lg hover:scale-110 hover:bg-pink-700 transition-all duration-300 border-4 border-white dark:border-slate-800 z-10"
+                    className="absolute left-1/2 -bottom-8 -translate-x-1/2 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 text-white p-4 rounded-full shadow-lg hover:scale-110 hover:bg-pink-700 transition-all duration-300 border-4 border-white dark:border-slate-800 z-10"
                     title="Watch Video Resume"
                   >
                     <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -190,14 +196,14 @@ const Hero: React.FC = () => {
                   </button>
                 </div>
                 
-                {/* Floating Tech Icons */}
-                <div className="absolute -top-4 -left-4 p-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full shadow-xl animate-float-3d">
+                {/* Static Tech Icons with consistent colors */}
+                <div className="absolute -top-4 -left-4 p-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full shadow-xl">
                   <span className="text-white font-bold text-sm">AI</span>
                 </div>
-                <div className="absolute -bottom-4 -right-4 p-3 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full shadow-xl animate-float-3d" style={{ animationDelay: '1s' }}>
+                <div className="absolute -bottom-4 -right-4 p-3 bg-gradient-to-r from-pink-600 to-blue-600 rounded-full shadow-xl">
                   <span className="text-white font-bold text-sm">DevOps</span>
                 </div>
-                <div className="absolute top-1/2 -right-8 p-3 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full shadow-xl animate-float-3d" style={{ animationDelay: '2s' }}>
+                <div className="absolute top-1/2 -right-8 p-3 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full shadow-xl">
                   <span className="text-white font-bold text-sm">Full-Stack</span>
                 </div>
               </div>
@@ -222,7 +228,7 @@ const Hero: React.FC = () => {
               className="absolute top-4 right-4 text-gray-500 hover:text-red-500 text-2xl font-bold"
               onClick={() => setShowVideo(false)}
             >
-              &times;
+              ×
             </button>
             <VideoResume />
           </div>

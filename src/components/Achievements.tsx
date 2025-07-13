@@ -46,7 +46,7 @@ const Achievements: React.FC = () => {
   };
 
   return (
-    <section id="achievements" className={`py-24 relative overflow-hidden ${darkMode ? 'bg-gray-800' : 'bg-gradient-to-br from-white via-purple-50 to-pink-50'}`}>
+    <section id="achievements" className={`py-32 relative overflow-hidden ${darkMode ? 'bg-gray-800' : 'bg-gradient-to-br from-white via-purple-50 to-pink-50'}`}>
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className={`absolute -top-40 -right-40 w-96 h-96 rounded-full ${darkMode ? 'bg-yellow-900/20' : 'bg-yellow-200/30'} blur-3xl animate-pulse`}></div>
@@ -71,15 +71,15 @@ const Achievements: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
-          <div className="inline-block p-4 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 rounded-full mb-6 shadow-2xl hover:scale-110 transition-transform duration-500">
-            <Crown className="w-8 h-8 text-white" />
+        <div className="text-center mb-24">
+          <div className="inline-block p-6 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 rounded-full mb-8 shadow-2xl hover:scale-110 transition-transform duration-500">
+            <Crown className="w-10 h-10 text-white" />
           </div>
-          <h2 className={`text-5xl md:text-6xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'} bg-clip-text text-transparent bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600`}>
+          <h2 className={`text-6xl md:text-7xl font-bold mb-8 ${darkMode ? 'text-white' : 'text-gray-900'} bg-clip-text text-transparent bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600`}>
             Achievements & Recognition
           </h2>
-          <div className="w-32 h-1.5 bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600 mx-auto rounded-full mb-8 shadow-lg"></div>
-          <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-4xl mx-auto leading-relaxed`}>
+          <div className="w-40 h-2 bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600 mx-auto rounded-full mb-12 shadow-lg"></div>
+          <p className={`text-2xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-4xl mx-auto leading-relaxed`}>
             Recognition for technical excellence, innovation, and community contributions
           </p>
         </div>

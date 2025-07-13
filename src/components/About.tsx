@@ -15,7 +15,7 @@ const About: React.FC = () => {
     },
     { 
       name: 'Full-Stack Development', 
-      techs: ['React', 'Node.js', 'Streamlit', 'REST APIs', 'Databases'],
+      techs: ['JavaScript', 'HTML', 'CSS', 'React', 'Node.js', 'Flask', 'APIs', 'Databases'],
       icon: <Code className="w-6 h-6" />,
       gradient: 'from-blue-600 via-cyan-600 to-teal-500'
     },
@@ -34,7 +34,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className={`py-24 relative overflow-hidden ${darkMode ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-purple-900' : 'bg-gradient-to-br from-blue-50 via-white to-purple-100'}`}>
+    <section id="about" className={`py-32 relative overflow-hidden ${darkMode ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-purple-900' : 'bg-gradient-to-br from-blue-50 via-white to-purple-100'}`}>
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className={`absolute -top-40 -right-40 w-96 h-96 rounded-full ${darkMode ? 'bg-purple-600/20' : 'bg-purple-300/50'} blur-3xl animate-pulse`}></div>
@@ -59,15 +59,15 @@ const About: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
-          <div className="inline-block p-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mb-6 shadow-2xl hover:scale-110 transition-transform duration-500">
-            <GraduationCap className="w-8 h-8 text-white" />
+        <div className="text-center mb-24">
+          <div className="inline-block p-6 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mb-8 shadow-2xl hover:scale-110 transition-transform duration-500">
+            <GraduationCap className="w-10 h-10 text-white" />
           </div>
-          <h2 className={`text-5xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600`}>
+          <h2 className={`text-6xl md:text-7xl font-bold mb-8 text-gray-900 dark:text-white bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600`}>
             About Me
           </h2>
-          <div className="w-32 h-2 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 mx-auto rounded-full mb-8 shadow-xl"></div>
-          <p className={`text-xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed`}>
+          <div className="w-40 h-2 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 mx-auto rounded-full mb-12 shadow-xl"></div>
+          <p className={`text-2xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed`}>
             Transforming ideas into reality through cutting-edge technology and innovative solutions
           </p>
         </div>
