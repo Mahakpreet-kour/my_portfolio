@@ -18,7 +18,7 @@ export interface BlogPost {
   description: string;
   url: string;
   date: string;
-  readTime: string;
+  readTime?: string;
   category: string;
 }
 
@@ -28,6 +28,7 @@ export interface Achievement {
   description: string;
   date: string;
   type: 'hackathon' | 'certification' | 'volunteer';
+  certificateLink?: string;
 }
 
 export interface Skill {
@@ -37,26 +38,26 @@ export interface Skill {
 }
 
 export const projects: Project[] = [
-  // MAIN PROJECTS (High Priority)
+  // MAIN PROJECTS (now 15)
   {
     id: 'career-guidance-ai-chatbot',
     title: 'Career Guidance AI Chatbot',
-    description: 'AI-powered career guidance chatbot providing personalized career advice and recommendations',
-    techStack: ['Python', 'AI', 'Chatbot', 'Career Guidance', 'Machine Learning'],
-    problem: 'Helps students and professionals make informed career decisions through intelligent conversation',
-    githubLink: 'https://github.com/Mahakpreet-kour/Career_guidance_ai_chatbot.git',
+    description: 'AI-powered chatbot providing personalized career guidance and advice.',
+    techStack: ['Python', 'AI', 'NLP', 'Streamlit'],
+    problem: 'Helps users make informed career decisions using AI.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Career_guidance_ai_chatbot',
     image: '',
     category: 'main',
     priority: 'high',
     completed: true
   },
   {
-    id: 'borrow-smart-loan-advisor',
-    title: 'BorrowSmart Loan Advisor',
-    description: 'Intelligent loan advisory system that provides personalized financial recommendations',
-    techStack: ['Python', 'Machine Learning', 'Financial Analysis', 'AI', 'Data Science'],
-    problem: 'Helps users make informed borrowing decisions through predictive modeling and risk assessment',
-    githubLink: 'https://github.com/Mahakpreet-kour/Borrow_smart_loan_advisor.git',
+    id: 'borosmart-loan-advisor',
+    title: 'Borosmart Loan Advisor',
+    description: 'AI-based system for smart loan recommendations and eligibility checks.',
+    techStack: ['Python', 'AI', 'Machine Learning', 'Flask'],
+    problem: 'Assists users in finding the best loan options.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Borrow_smart_loan_advisor',
     image: '',
     category: 'main',
     priority: 'high',
@@ -65,10 +66,10 @@ export const projects: Project[] = [
   {
     id: 'studymate-ai',
     title: 'StudyMate AI',
-    description: 'AI-powered study assistant for personalized learning and academic support',
-    techStack: ['Python', 'AI', 'Education', 'Machine Learning', 'Jupyter'],
-    problem: 'Enhances learning experience with intelligent study recommendations and assistance',
-    githubLink: 'https://github.com/Mahakpreet-kour/Studymate__AI.git',
+    description: 'AI-powered study assistant for personalized learning and productivity.',
+    techStack: ['Python', 'AI', 'Streamlit'],
+    problem: 'Enhances student learning with AI-driven tools.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Studymate__AI',
     image: '',
     category: 'main',
     priority: 'high',
@@ -77,46 +78,46 @@ export const projects: Project[] = [
   {
     id: 'smart-file-explorer',
     title: 'Smart File Explorer',
-    description: 'Intelligent file management system with AI-powered organization and search',
-    techStack: ['Python', 'File Management', 'AI', 'Automation', 'GUI'],
-    problem: 'Streamlines file organization and retrieval with intelligent categorization',
-    githubLink: 'https://github.com/Mahakpreet-kour/Smart-file-explorer.git',
+    description: 'A smart file explorer for efficient file management and search.',
+    techStack: ['Python', 'Streamlit'],
+    problem: 'Simplifies file organization and access.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Smart-file-explorer',
     image: '',
     category: 'main',
     priority: 'high',
     completed: true
   },
   {
-    id: 'multi-resume-screening-system',
-    title: 'Multi Resume Screening System',
-    description: 'AI-powered bulk resume analysis and candidate matching system',
-    techStack: ['Python', 'NLP', 'AI', 'Resume Processing', 'Machine Learning'],
-    problem: 'Automates HR processes with intelligent resume screening and candidate evaluation',
-    githubLink: 'https://github.com/Mahakpreet-kour/Multi-resume-screening-system.git',
+    id: 'multi-resume-screening',
+    title: 'Multi-Resume Screening System',
+    description: 'Automated system for screening and ranking multiple resumes using AI.',
+    techStack: ['Python', 'AI', 'NLP'],
+    problem: 'Speeds up the hiring process by automating resume screening.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Multi-resume-screening-system',
     image: '',
     category: 'main',
     priority: 'high',
     completed: true
   },
   {
-    id: 'smart-menubase',
-    title: 'Smart MenuBase',
-    description: 'Intelligent menu management system with AI-powered recommendations',
-    techStack: ['Python', 'AI', 'Menu Management', 'Database', 'Web Development'],
-    problem: 'Optimizes menu planning and management with intelligent suggestions',
-    githubLink: 'https://github.com/Mahakpreet-kour/Smart-menubase-project.git',
+    id: 'smart-menu-base',
+    title: 'Smart Menu Base',
+    description: 'A smart, customizable menu base for desktop automation.',
+    techStack: ['Python', 'Automation'],
+    problem: 'Centralizes access to various automation scripts.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Smart-menubase-project',
     image: '',
     category: 'main',
-    priority: 'medium',
+    priority: 'high',
     completed: true
   },
   {
     id: 'linux-ssh-dashboard',
     title: 'Linux SSH Dashboard',
-    description: 'Voice and text command interface for remote Linux system management',
-    techStack: ['Python', 'SSH', 'Voice Recognition', 'Linux', 'Flask'],
-    problem: 'Simplifies remote server administration with intuitive voice commands',
-    githubLink: 'https://github.com/Mahakpreet-kour/linux-ssh-dashboard.git',
+    description: 'Dashboard for managing and monitoring Linux SSH connections.',
+    techStack: ['Python', 'Linux', 'SSH'],
+    problem: 'Simplifies SSH session management for Linux servers.',
+    githubLink: 'https://github.com/Mahakpreet-kour/linux-ssh-dashboard',
     image: '',
     category: 'main',
     priority: 'high',
@@ -125,144 +126,191 @@ export const projects: Project[] = [
   {
     id: 'fatigue-score-predictor',
     title: 'Fatigue Score Predictor',
-    description: 'ML-based fatigue prediction system for health monitoring',
-    techStack: ['Python', 'Machine Learning', 'Health Tech', 'Data Analysis', 'ML'],
-    problem: 'Predicts fatigue levels to improve workplace safety and health monitoring',
-    githubLink: 'https://github.com/Mahakpreet-kour/fatigue_score_predictor_mlproj.git',
+    description: 'Machine learning model to predict fatigue scores from user data.',
+    techStack: ['Python', 'ML', 'Streamlit'],
+    problem: 'Helps users monitor and manage fatigue levels.',
+    githubLink: 'https://github.com/Mahakpreet-kour/fatigue_score_predictor_mlproj',
     image: '',
     category: 'main',
-    priority: 'medium',
+    priority: 'high',
     completed: true
   },
   {
     id: 'stock-trend-predictor',
     title: 'Stock Trend Predictor',
-    description: 'AI-powered stock market trend prediction and analysis system',
-    techStack: ['Python', 'Machine Learning', 'Finance', 'Data Science', 'AI'],
-    problem: 'Provides data-driven insights for stock market analysis and predictions',
-    githubLink: 'https://github.com/Mahakpreet-kour/Stock_trend_predictor.git',
-    image: '',
-    category: 'main',
-    priority: 'medium',
-    completed: true
-  },
-  {
-    id: 'genaiops-windows',
-    title: 'GenAIOps Windows Assistant',
-    description: 'AI-powered Windows system management and automation assistant',
-    techStack: ['Python', 'AI', 'Windows', 'Automation', 'GenAI'],
-    problem: 'Streamlines Windows system management with AI-driven automation',
-    githubLink: 'https://github.com/Mahakpreet-kour/GenAIOps-WindowsAssistant.git',
+    description: 'AI-powered tool for predicting stock market trends.',
+    techStack: ['Python', 'AI', 'ML'],
+    problem: 'Assists users in making informed stock trading decisions.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Stock_trend_predictor',
     image: '',
     category: 'main',
     priority: 'high',
     completed: true
   },
-
-  // PYTHON PROJECTS - Individual Tasks
   {
-    id: 'audio-to-text',
-    title: 'Audio to Text Converter',
-    description: 'Convert audio files to text using speech recognition',
-    techStack: ['Python', 'Speech Recognition', 'Audio Processing', 'API'],
-    problem: 'Transcribes audio content to text for accessibility and documentation',
-    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes.git',
+    id: 'genaiops-windows-assistant',
+    title: 'GenAIops Windows Assistant',
+    description: 'AI-powered assistant for automating tasks on Windows.',
+    techStack: ['Python', 'AI', 'Automation'],
+    problem: 'Automates routine tasks on Windows OS.',
+    githubLink: 'https://github.com/Mahakpreet-kour/GenAIOps-WindowsAssistant',
+    image: '',
+    category: 'main',
+    priority: 'high',
+    completed: true
+  },
+  {
+    id: 'all-in-one-menu-dashboard',
+    title: 'All in One Menu Dashboard',
+    description: 'Centralized dashboard for accessing multiple automation tools.',
+    techStack: ['Python', 'Automation'],
+    problem: 'Brings all automation scripts under one dashboard.',
+    githubLink: 'https://github.com/Mahakpreet-kour/All_In_One-Menu-Dashboard',
+    image: '',
+    category: 'main',
+    priority: 'high',
+    completed: true
+  },
+  {
+    id: 'jarvis-ai-assistant',
+    title: 'Jarvis AI Menubase Assistant',
+    description: 'Advanced AI-powered desktop assistant with voice commands and automation capabilities',
+    techStack: ['Python', 'AI', 'Speech Recognition', 'Automation', 'Natural Language Processing'],
+    problem: 'Streamlines desktop tasks and enhances productivity through voice-controlled AI assistance',
+    githubLink: 'https://github.com/Mahakpreet-kour/jarvis_ai_Desktop_Assistant',
+    image: '',
+    category: 'main',
+    priority: 'high',
+    completed: true
+  },
+  {
+    id: 'gemini-kids-quiz-game',
+    title: 'Gemini Kids Quiz Game',
+    description: 'Fun and educational quiz game for kids using Gemini AI.',
+    techStack: ['Python', 'AI', 'Gemini'],
+    problem: 'Makes learning fun and interactive for children.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Gemini-Kids-Quiz-Game',
+    image: '',
+    category: 'main',
+    priority: 'high',
+    completed: true
+  },
+  {
+    id: 'devops-project-1',
+    title: 'DevOps Infrastructure Automation',
+    description: 'Comprehensive DevOps project showcasing infrastructure automation and CI/CD pipelines.',
+    techStack: ['Python', 'Docker', 'Jenkins', 'Kubernetes', 'AWS', 'Terraform', 'Git'],
+    problem: 'Automates infrastructure deployment and streamlines development workflows.',
+    githubLink: 'https://github.com/Mahakpreet-kour/devops_project_1',
+    image: '',
+    category: 'main',
+    priority: 'high',
+    completed: true
+  },
+  // PYTHON PROJECTS (11)
+  {
+    id: 'text-converter',
+    title: 'How to Text Converter',
+    description: 'Convert various formats to text using Python automation.',
+    techStack: ['Python', 'Text Processing', 'Automation'],
+    problem: 'Automates conversion of files and data to text.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes',
     image: '',
     category: 'python',
-    priority: 'high',
+    priority: 'medium',
     completed: true
   },
   {
     id: 'text-to-audio',
     title: 'Text to Audio Converter',
-    description: 'Convert text to speech with natural voice synthesis',
-    techStack: ['Python', 'Text-to-Speech', 'Audio Generation', 'API'],
-    problem: 'Creates audio content from text for accessibility and automation',
-    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes.git',
-    image: '',
-    category: 'python',
-    priority: 'high',
-    completed: true
-  },
-  {
-    id: 'phone-call-automation',
-    title: 'Phone Call Automation',
-    description: 'Make automated phone calls using Python with text-to-speech',
-    techStack: ['Python', 'Twilio API', 'Voice Calls', 'TTS', 'Automation'],
-    problem: 'Automates phone calls for notifications and reminders',
-    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes.git',
+    description: 'Convert text to speech/audio using Python.',
+    techStack: ['Python', 'Text-to-Speech', 'Audio'],
+    problem: 'Makes content accessible by converting text to audio.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes',
     image: '',
     category: 'python',
     priority: 'medium',
     completed: true
   },
   {
-    id: 'web-scraping',
-    title: 'Web Scraping Tool',
-    description: 'Extract data from websites using Python automation',
-    techStack: ['Python', 'Web Scraping', 'BeautifulSoup', 'Requests', 'Automation'],
-    problem: 'Automates data collection from web sources for analysis',
-    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes.git',
-    image: '',
-    category: 'python',
-    priority: 'high',
-    completed: true
-  },
-  {
-    id: 'email-automation',
-    title: 'Email Automation System',
-    description: 'Send automated emails with attachments and HTML formatting',
-    techStack: ['Python', 'SMTP', 'Email', 'Automation', 'HTML'],
-    problem: 'Automates email sending for marketing campaigns and notifications',
-    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes.git',
-    image: '',
-    category: 'python',
-    priority: 'high',
-    completed: true
-  },
-  {
-    id: 'sms-automation',
-    title: 'SMS Automation Tool',
-    description: 'Send SMS messages using Python with Twilio API integration',
-    techStack: ['Python', 'Twilio API', 'SMS', 'Automation'],
-    problem: 'Enables automated SMS notifications and alerts',
-    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes.git',
-    image: '',
-    category: 'python',
-    priority: 'high',
-    completed: true
-  },
-  {
-    id: 'whatsapp-automation',
-    title: 'WhatsApp Message Automation',
-    description: 'Send WhatsApp messages using Python with WhatsApp Business API',
-    techStack: ['Python', 'WhatsApp API', 'Automation', 'Messaging'],
-    problem: 'Automates WhatsApp messaging for business communications',
-    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes.git',
-    image: '',
-    category: 'python',
-    priority: 'high',
-    completed: true
-  },
-  {
-    id: 'instagram-posting',
-    title: 'Instagram Post Automation',
-    description: 'Automatically post content to Instagram using Python',
-    techStack: ['Python', 'Instagram API', 'Social Media', 'Automation'],
-    problem: 'Automates social media posting for business and personal use',
-    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes.git',
+    id: 'make-call',
+    title: 'How to Call',
+    description: 'Automate phone calls using Python scripts.',
+    techStack: ['Python', 'Telephony', 'Automation'],
+    problem: 'Automates making phone calls programmatically.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes',
     image: '',
     category: 'python',
     priority: 'medium',
     completed: true
   },
   {
-    id: 'face-swap',
-    title: 'Face Swap Application',
-    description: 'Swap faces in images using computer vision and AI',
-    techStack: ['Python', 'OpenCV', 'Computer Vision', 'AI', 'Image Processing'],
-    problem: 'Creates entertaining face swap effects using advanced image processing',
-    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes.git',
+    id: 'make-image',
+    title: 'How to Make Image',
+    description: 'Generate or manipulate images using Python.',
+    techStack: ['Python', 'Image Processing'],
+    problem: 'Automates image creation and editing.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes',
+    image: '',
+    category: 'python',
+    priority: 'medium',
+    completed: true
+  },
+  {
+    id: 'google-search-output',
+    title: 'How to Search through Google and Output',
+    description: 'Search Google and process results using Python.',
+    techStack: ['Python', 'Web Scraping', 'Google Search'],
+    problem: 'Automates Google search and result extraction.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes',
+    image: '',
+    category: 'python',
+    priority: 'medium',
+    completed: true
+  },
+  {
+    id: 'send-email',
+    title: 'How to Send Email',
+    description: 'Send emails programmatically using Python.',
+    techStack: ['Python', 'Email', 'SMTP'],
+    problem: 'Automates sending emails from scripts.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes',
+    image: '',
+    category: 'python',
+    priority: 'medium',
+    completed: true
+  },
+  {
+    id: 'send-sms',
+    title: 'How to Send SMS',
+    description: 'Send SMS messages using Python automation.',
+    techStack: ['Python', 'SMS', 'Twilio'],
+    problem: 'Automates sending SMS messages.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes',
+    image: '',
+    category: 'python',
+    priority: 'medium',
+    completed: true
+  },
+  {
+    id: 'whatsapp-message',
+    title: 'Message on WhatsApp through Python',
+    description: 'Send WhatsApp messages using Python scripts.',
+    techStack: ['Python', 'WhatsApp API', 'Automation'],
+    problem: 'Automates WhatsApp messaging.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes',
+    image: '',
+    category: 'python',
+    priority: 'medium',
+    completed: true
+  },
+  {
+    id: 'post-on-insta',
+    title: 'Post on Insta',
+    description: 'Automate Instagram posting using Python.',
+    techStack: ['Python', 'Instagram API', 'Automation'],
+    problem: 'Automates posting to Instagram.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes',
     image: '',
     category: 'python',
     priority: 'medium',
@@ -270,237 +318,365 @@ export const projects: Project[] = [
   },
   {
     id: 'rock-paper-scissors',
-    title: 'Rock Paper Scissors Game',
-    description: 'Interactive rock paper scissors game with computer opponent',
-    techStack: ['Python', 'Game Logic', 'Random Generation', 'User Input'],
-    problem: 'Provides entertainment and demonstrates basic game programming',
-    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes.git',
+    title: 'Rock Paper Scissors',
+    description: 'Play Rock Paper Scissors game with Python.',
+    techStack: ['Python', 'Game'],
+    problem: 'Demonstrates basic game logic in Python.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes',
     image: '',
     category: 'python',
-    priority: 'low',
-    completed: true
-  },
-
-  // HTML & JAVASCRIPT PROJECTS - Individual Tasks
-  {
-    id: 'age-calculator',
-    title: 'Age Calculator',
-    description: 'Calculate age from birth date with precise calculations',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'Date Processing', 'DOM'],
-    problem: 'Provides accurate age calculation for various applications',
-    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git',
-    image: '',
-    category: 'html-js',
-    priority: 'high',
-    completed: true
-  },
-  {
-    id: 'bmi-calculator',
-    title: 'BMI Calculator',
-    description: 'Calculate Body Mass Index with health recommendations',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'Health Calculations', 'Forms'],
-    problem: 'Helps users track their health metrics and get recommendations',
-    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git',
-    image: '',
-    category: 'html-js',
-    priority: 'high',
-    completed: true
-  },
-  {
-    id: 'camera-app',
-    title: 'Camera Application',
-    description: 'Take photos using device camera with web interface',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'Camera API', 'WebRTC'],
-    problem: 'Enables camera functionality in web applications',
-    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git',
-    image: '',
-    category: 'html-js',
-    priority: 'high',
-    completed: true
-  },
-  {
-    id: 'dark-mode-toggle',
-    title: 'Dark Mode Toggle',
-    description: 'Switch between light and dark themes with smooth transitions',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'Theme Switching', 'LocalStorage'],
-    problem: 'Improves user experience with customizable theme options',
-    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git',
-    image: '',
-    category: 'html-js',
     priority: 'medium',
     completed: true
   },
   {
-    id: 'goal-countdown',
-    title: 'Goal Countdown Timer',
-    description: 'Countdown timer for tracking goals and deadlines',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'Timer Logic', 'Date Calculations'],
-    problem: 'Helps users stay motivated and track progress towards goals',
-    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git',
+    id: 'swap-face',
+    title: 'Swap Face',
+    description: 'Swap faces in images using Python and OpenCV.',
+    techStack: ['Python', 'OpenCV', 'Image Processing'],
+    problem: 'Performs face swap using computer vision.',
+    githubLink: 'https://github.com/Mahakpreet-kour/Python_codes',
     image: '',
-    category: 'html-js',
+    category: 'python',
     priority: 'medium',
     completed: true
   },
+  // HTML-JS PROJECTS (21)
   {
-    id: 'gps-tracker',
-    title: 'GPS Location Tracker',
-    description: 'Get and display current GPS coordinates',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'Geolocation API', 'GPS'],
-    problem: 'Provides location services for web applications',
-    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git',
-    image: '',
-    category: 'html-js',
-    priority: 'high',
-    completed: true
-  },
-  {
-    id: 'grocery-finder',
-    title: 'Grocery Store Finder',
-    description: 'Find nearby grocery stores using location services',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'Maps API', 'Geolocation'],
-    problem: 'Helps users locate nearby grocery stores and markets',
-    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git',
-    image: '',
-    category: 'html-js',
-    priority: 'medium',
-    completed: true
-  },
-  {
-    id: 'internet-speed-test',
-    title: 'Internet Speed Tester',
-    description: 'Test internet connection speed and performance',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'Network API', 'Performance'],
-    problem: 'Provides real-time internet speed measurements',
-    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git',
-    image: '',
-    category: 'html-js',
-    priority: 'medium',
-    completed: true
-  },
-  {
-    id: 'live-vlog',
-    title: 'Live Vlog Application',
-    description: 'Stream live video content with web interface',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'WebRTC', 'Video Streaming'],
-    problem: 'Enables live video streaming for content creators',
-    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git',
-    image: '',
-    category: 'html-js',
-    priority: 'high',
-    completed: true
-  },
-  {
-    id: 'mood-music',
-    title: 'Mood Music Player',
-    description: 'Music player that suggests songs based on mood',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'Audio API', 'Mood Detection'],
-    problem: 'Provides personalized music recommendations based on user mood',
-    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git',
-    image: '',
-    category: 'html-js',
-    priority: 'medium',
-    completed: true
-  },
-  {
-    id: 'whatsapp-sender',
-    title: 'WhatsApp Message Sender',
-    description: 'Send WhatsApp messages directly from web interface',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'WhatsApp API', 'Messaging'],
-    problem: 'Enables WhatsApp messaging from web applications',
-    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git',
-    image: '',
-    category: 'html-js',
-    priority: 'high',
-    completed: true
-  },
-  {
-    id: 'calculator',
-    title: 'Simple Calculator',
-    description: 'Basic calculator with arithmetic operations',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'Math Operations', 'DOM'],
-    problem: 'Provides basic calculation functionality for everyday use',
-    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git',
-    image: '',
-    category: 'html-js',
-    priority: 'low',
-    completed: true
-  },
-  {
-    id: 'text-to-speech',
-    title: 'Text to Speech Converter',
-    description: 'Convert text to speech with voice synthesis',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'Speech API', 'Audio'],
-    problem: 'Makes content accessible to visually impaired users',
-    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git',
-    image: '',
-    category: 'html-js',
-    priority: 'medium',
-    completed: true
-  },
-  {
-    id: 'speed-tester',
-    title: 'Speed Tester',
-    description: 'Test typing speed and accuracy',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'Timer Logic', 'Performance'],
-    problem: 'Helps users improve typing speed and accuracy',
-    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git',
-    image: '',
-    category: 'html-js',
-    priority: 'medium',
-    completed: true
-  },
-  {
-    id: 'temperature-converter',
-    title: 'Temperature Converter',
-    description: 'Convert between Celsius, Fahrenheit, and Kelvin',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'Unit Conversion', 'Forms'],
-    problem: 'Provides temperature conversion for various applications',
-    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git',
-    image: '',
-    category: 'html-js',
-    priority: 'low',
-    completed: true
-  },
-  {
-    id: 'email-sender',
-    title: 'Email Sender',
-    description: 'Send emails directly from web interface',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'Email API', 'SMTP'],
-    problem: 'Enables email sending from web applications',
-    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git',
-    image: '',
-    category: 'html-js',
-    priority: 'high',
-    completed: true
-  },
-  {
-    id: 'unit-converter',
-    title: 'Unit Converter',
-    description: 'Convert between different units of measurement',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'Unit Conversion', 'Calculations'],
-    problem: 'Provides unit conversion for various measurement systems',
-    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git',
-    image: '',
-    category: 'html-js',
-    priority: 'medium',
-    completed: true
-  },
-  {
-    id: 'video-capture',
+    id: 'htmljs-video-capture',
     title: 'Video Capture Application',
-    description: 'Record video using device camera with web interface',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'Video API', 'WebRTC'],
-    problem: 'Enables video recording functionality in web applications',
-    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git',
+    description: 'Capture video from webcam and save or process it in browser.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Webcam', 'Video'],
+    problem: 'Allows users to record video directly from their browser.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
     image: '',
     category: 'html-js',
-    priority: 'high',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-unit-converter',
+    title: 'Unit Converter',
+    description: 'Convert between different units (length, weight, etc.) in browser.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Unit Conversion'],
+    problem: 'Helps users quickly convert units.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-email-sender',
+    title: 'Email Sender',
+    description: 'Send emails directly from a web form.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Email'],
+    problem: 'Allows users to send emails from the browser.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-temperature-converter',
+    title: 'Temperature Converter',
+    description: 'Convert temperatures between Celsius, Fahrenheit, and Kelvin.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Temperature Conversion'],
+    problem: 'Quickly convert temperature units.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-speed-tester',
+    title: 'Speed Tester',
+    description: 'Test your typing or internet speed in browser.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Speed Test'],
+    problem: 'Lets users check their speed easily.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-text-to-speech',
+    title: 'Text-to-Speech Converter',
+    description: 'Convert written text to spoken audio.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Text-to-Speech'],
+    problem: 'Makes content accessible by reading text aloud.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-simple-calculator',
+    title: 'Simple Calculator',
+    description: 'Perform basic arithmetic operations in browser.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Calculator'],
+    problem: 'Helps users calculate quickly.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-whatsapp-message',
+    title: 'WhatsApp Message Sender',
+    description: 'Send WhatsApp messages from a web interface.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'WhatsApp API'],
+    problem: 'Automates WhatsApp messaging from browser.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-mode-music',
+    title: 'Mode Music Player',
+    description: 'Play music with different modes (shuffle, repeat, etc.).',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Music Player'],
+    problem: 'Lets users play and control music in browser.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-live-vlog',
+    title: 'Live Vlog Application',
+    description: 'Stream or record live video vlogs in browser.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Live Vlog'],
+    problem: 'Enables live vlogging from browser.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-internet-speed',
+    title: 'Internet Speed Tester',
+    description: 'Test your internet speed in browser.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Internet Speed Test'],
+    problem: 'Lets users check their internet speed.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-grocery-finder',
+    title: 'Grocery Store Finder',
+    description: 'Find nearby grocery stores using browser location.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Grocery Finder'],
+    problem: 'Helps users locate grocery stores.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-gps-tracker',
+    title: 'GPS Location Tracker',
+    description: 'Track and display your GPS location in browser.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'GPS Tracker'],
+    problem: 'Shows user location using browser GPS.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-goal-countdown',
+    title: 'Goal Countdown Timer',
+    description: 'Set and track countdowns to your goals.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Countdown Timer'],
+    problem: 'Helps users stay motivated by tracking goals.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-dark-mode',
+    title: 'Dark Mode Toggle',
+    description: 'Switch between light and dark mode in browser.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Dark Mode'],
+    problem: 'Improves user experience with dark mode.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-camera-app',
+    title: 'Camera Application',
+    description: 'Take photos using your webcam in browser.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Camera App'],
+    problem: 'Lets users capture photos from browser.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-bmi-calculator',
+    title: 'BMI Calculator',
+    description: 'Calculate your Body Mass Index (BMI) in browser.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'BMI Calculator'],
+    problem: 'Helps users check their BMI easily.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-age-calculator',
+    title: 'Age Calculator',
+    description: 'Calculate your age from date of birth.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Age Calculator'],
+    problem: 'Lets users calculate their age easily.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-photo-to-email',
+    title: 'Photo Capture & Email Sender',
+    description: 'Capture a photo using your webcam and instantly send it as an email attachment from the browser.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Photo Capture', 'Email'],
+    problem: 'Enables users to take a photo and email it directly in one step.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-video-to-email',
+    title: 'Video Capture & Email Sender',
+    description: 'Record a video in the browser and instantly send it as an email attachment.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Video Capture', 'Email'],
+    problem: 'Allows users to capture video and email it directly from the web app.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
+    completed: true
+  },
+  {
+    id: 'htmljs-last-gmail-info',
+    title: 'Info of Your Last Gmail',
+    description: 'Display information about your last received Gmail.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Gmail Info'],
+    problem: 'Shows details of the last Gmail message.',
+    githubLink: 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects',
+    image: '',
+    category: 'html-js',
+    priority: 'low',
     completed: true
   }
 ];
 
 export const blogPosts: BlogPost[] = [
+  {
+    id: 'docker-gui-software',
+    title: 'Running Graphical Software in Docker Containers',
+    description: 'Comprehensive guide on running GUI applications inside Docker containers with proper display and audio support.',
+    url: 'https://medium.com/@mahakmakkar621/running-graphical-software-in-docker-containers-46572ea8bf38',
+    date: '2024',
+    readTime: '8 min read',
+    category: 'Docker & DevOps'
+  },
+  {
+    id: 'python-menu-commands',
+    title: 'Python Menu to Run Various Commands',
+    description: 'Building an interactive command menu system using Python for system automation.',
+    url: 'https://medium.com/@mahakmakkar621/python-menu-to-run-various-commands-a577bca8211d',
+    date: '2024',
+    readTime: '6 min read',
+    category: 'Python & Automation'
+  },
+  {
+    id: 'docker-webserver',
+    title: 'Configuring Webserver Inside Docker Container',
+    description: 'Step-by-step guide to setting up and configuring a web server within a Docker container on CentOS 7.',
+    url: 'https://medium.com/@mahakmakkar621/configuring-webserver-inside-docker-container-in-centos-7-1afac390f3f8',
+    date: '2024',
+    readTime: '10 min read',
+    category: 'Docker & DevOps'
+  },
+  {
+    id: 'linux-terminals',
+    title: 'Adding More Terminals and GUI Interfaces in Linux',
+    description: 'Exploring various ways to enhance Linux terminal capabilities and GUI interfaces.',
+    url: 'https://medium.com/@mahakmakkar621/to-add-more-terminals-and-gui-interfaces-in-linux-cdc30bb1fab3',
+    date: '2024',
+    readTime: '7 min read',
+    category: 'Linux & System Admin'
+  },
+  {
+    id: 'selenium-docker',
+    title: 'Running Selenium Tests in Docker',
+    description: 'Beginner-friendly guide to implementing Selenium testing within Docker containers.',
+    url: 'https://medium.com/@mahakmakkar621/running-selenium-tool-tests-in-docker-a-beginner-friendly-guide-d95284557f03',
+    date: '2024',
+    readTime: '9 min read',
+    category: 'Testing & DevOps'
+  },
+  {
+    id: 'linear-regression-docker',
+    title: 'Running Python Linear Regression in Docker',
+    description: 'Implementation guide for running machine learning models inside Docker containers using Red Hat UBI8.',
+    url: 'https://medium.com/@mahakmakkar621/run-a-python-linear-regression-model-inside-a-docker-container-using-red-hat-ubi8-4c42b05a36a2',
+    date: '2024',
+    readTime: '8 min read',
+    category: 'Machine Learning & Docker'
+  },
+  {
+    id: 'folder-backup-flask',
+    title: 'Automate Folder Backup with Flask API',
+    description: 'Creating an automated backup system using Flask API and curl commands on Linux.',
+    url: 'https://medium.com/@mahakmakkar621/automate-folder-backup-with-flask-api-and-curl-on-linux-d62fcfe90b61',
+    date: '2024',
+    readTime: '7 min read',
+    category: 'Python & DevOps'
+  },
+  {
+    id: 'python-cli-docker',
+    title: 'Building Python CLI Apps in Docker',
+    description: 'Guide to building and running menu-driven Python CLI applications inside Docker containers.',
+    url: 'https://medium.com/@mahakmakkar621/build-and-run-a-menu-driven-python-cli-app-inside-a-red-hat-ubi8-docker-container-a9d6dbb16679',
+    date: '2024',
+    readTime: '8 min read',
+    category: 'Python & Docker'
+  },
+  {
+    id: 'flask-docker-ubi8',
+    title: 'Running Flask Web Apps in Docker UBI8',
+    description: 'Comprehensive guide to deploying Flask web applications using Red Hat UBI8 Docker containers.',
+    url: 'https://medium.com/@mahakmakkar621/running-a-flask-web-app-inside-a-docker-container-using-red-hat-ubi8-47bb3bb6f514',
+    date: '2024',
+    readTime: '9 min read',
+    category: 'Web Development & Docker'
+  },
   // Linux & DevOps Articles
   {
     id: 'linux-gui-programs',
@@ -672,60 +848,32 @@ export const blogPosts: BlogPost[] = [
 
 export const achievements: Achievement[] = [
   {
-    id: 'hackathon-runner-up',
-    title: 'Runner-up, Top 10 – Hackathon at VGU',
-    description: 'Achieved runner-up position in competitive hackathon at Vivekananda Global University',
-    date: '2024',
+    id: 'major-projects-8',
+    title: '8+ Major Projects Completed',
+    description: 'Successfully completed 8+ major projects in AI, automation, and development.',
+    date: '2023',
     type: 'hackathon'
   },
   {
-    id: 'volunteer-vgu',
-    title: 'Volunteer – National Project Exhibitions at VGU',
-    description: 'Organized and managed national-level project exhibitions and technical events',
-    date: '2024',
+    id: 'national-exhibition-volunteer',
+    title: 'National Level Project Exhibition Volunteering',
+    description: 'Volunteered at National Level Project Exhibition.',
+    date: '2023',
     type: 'volunteer'
   },
   {
-    id: 'volunteer-ric',
-    title: 'Volunteer – National Project Exhibitions at RIC Jaipur',
-    description: 'Contributed to organizing technical exhibitions and innovation showcases',
-    date: '2024',
+    id: 'ric-jaipur-volunteer',
+    title: 'RIC Jaipur Volunteering',
+    description: 'Volunteered at RIC Jaipur for national-level event.',
+    date: '2023',
     type: 'volunteer'
   },
   {
-    id: 'exin-ai',
-    title: 'EXIN BCS Artificial Intelligence Essentials',
-    description: 'Certified in AI fundamentals and practical applications',
-    date: '2024',
-    type: 'certification'
-  },
-  {
-    id: 'exin-cloud',
-    title: 'EXIN Cloud Computing Foundation',
-    description: 'Foundational certification in cloud computing concepts and services',
-    date: '2024',
-    type: 'certification'
-  },
-  {
-    id: 'azure-ai',
-    title: 'Microsoft Azure AI Fundamentals',
-    description: 'Certified in Azure AI services and machine learning fundamentals',
-    date: '2024',
-    type: 'certification'
-  },
-  {
-    id: 'azure-design',
-    title: 'Microsoft AI Design & Implementation',
-    description: 'Advanced certification in AI solution design and implementation',
-    date: '2024',
-    type: 'certification'
-  },
-  {
-    id: 'google-genai',
-    title: 'Google Cloud: Intro to Generative AI',
-    description: 'Specialized training in generative AI technologies and applications',
-    date: '2024',
-    type: 'certification'
+    id: 'vgu-hackathon-runnerup',
+    title: 'VGU Hackathon (Smart India Hackathon) Runner Up (Top 10)',
+    description: 'Runner up (Top 10) in VGU Smart India Hackathon.',
+    date: '2023',
+    type: 'hackathon'
   }
 ];
 
@@ -752,11 +900,10 @@ export const skills: Skill[] = [
 ];
 
 export const socialLinks = {
-  email: 'mahakmakkar621@gmail.com',
   github: 'https://github.com/Mahakpreet-kour',
   linkedin: 'https://www.linkedin.com/in/mahakpreet-kour-b83774286/',
-  twitter: 'https://x.com/Mahak_makkar',
-  medium: 'https://medium.com/@mahakmakkar621'
+  twitter: 'https://twitter.com/MahakpreetK',
+  email: 'mahakmakkar621@gmail.com'
 };
 
 export const personalInfo = {

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MapPin, GraduationCap, Heart, Lightbulb, Code, Rocket, Sparkles, Brain, Target } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import { useTheme } from './ThemeContext';
 
 const About: React.FC = () => {
   const { darkMode } = useTheme();
+  const [activeCard, setActiveCard] = useState<string | null>(null);
+  const [floatingCard, setFloatingCard] = useState<string | null>(null);
 
   const techCategories = [
     { 
@@ -32,6 +34,11 @@ const About: React.FC = () => {
       gradient: 'from-orange-600 via-yellow-600 to-amber-500'
     }
   ];
+
+  // Card class helpers for hover/click float/glow
+  const personalCardClass = `group relative p-10 rounded-3xl about-card-glass animate-fade-in-up ${activeCard === 'personal' ? 'certificate-float certificate-z' : ''} transition-transform duration-700 group-hover:-translate-y-8 group-hover:scale-110 group-hover:rotate-x-6 group-hover:rotate-y-2 group-focus:-translate-y-8 group-focus:scale-110 group-focus:rotate-x-6 group-focus:rotate-y-2 group-focus-visible:-translate-y-8 group-focus-visible:scale-110 group-focus-visible:rotate-x-6 group-focus-visible:rotate-y-2 group-active:-translate-y-8 group-active:scale-110 group-active:rotate-x-6 group-active:rotate-y-2 hover:shadow-3xl hover:certificate-hover-glow`;
+  const funFactsCardClass = `group relative p-10 rounded-3xl about-card-glass animate-fade-in-up ${activeCard === 'funfacts' ? 'certificate-float certificate-z' : ''} transition-transform duration-700 group-hover:-translate-y-8 group-hover:scale-110 group-hover:rotate-x-6 group-hover:rotate-y-2 group-focus:-translate-y-8 group-focus:scale-110 group-focus:rotate-x-6 group-focus:rotate-y-2 hover:shadow-3xl hover:certificate-hover-glow`;
+  const techCardClass = `group relative p-10 rounded-3xl about-card-glass animate-fade-in-up ${activeCard === 'tech' ? 'certificate-float certificate-z' : ''} transition-transform duration-700 group-hover:-translate-y-8 group-hover:scale-110 group-hover:rotate-x-6 group-hover:rotate-y-2 group-focus:-translate-y-8 group-focus:scale-110 group-focus:rotate-x-6 group-focus:rotate-y-2 hover:shadow-3xl hover:certificate-hover-glow`;
 
   return (
     <section id="about" className={`py-32 relative overflow-hidden ${darkMode ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-purple-900' : 'bg-gradient-to-br from-blue-50 via-white to-purple-100'}`}>
@@ -75,18 +82,34 @@ const About: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left Side - Personal Info */}
           <div className="space-y-8">
-            <div className={`group relative p-10 rounded-3xl ${
-              darkMode ? 'bg-gray-800/90 border-gray-600/50' : 'bg-white/95 border-purple-200/50'
-            } backdrop-blur-xl shadow-2xl border ${
-              darkMode ? 'border-gray-600/50' : 'border-purple-200/50'
-            } hover:shadow-3xl transition-all duration-700 hover:-translate-y-6 hover:rotate-1 transform-gpu`}
-            style={{
-              background: darkMode 
-                ? 'linear-gradient(135deg, rgba(31, 41, 55, 0.95) 0%, rgba(55, 65, 81, 0.9) 100%)'
-                : 'linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%)'
-            }}>
+            <div className={personalCardClass}
+              style={{
+                background: darkMode 
+                  ? 'linear-gradient(135deg, rgba(31, 41, 55, 0.95) 0%, rgba(55, 65, 81, 0.9) 100%)'
+                  : 'linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%)'
+              }}
+              tabIndex={0}
+              onMouseMove={e => {
+                const card = e.currentTarget;
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * 8;
+                const rotateY = ((x - centerX) / centerX) * 8;
+                card.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+              }}
+              onClick={() => {
+                setActiveCard('personal');
+                setTimeout(() => setActiveCard(null), 2000);
+              }}
+            >
               {/* Glowing border effect */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 opacity-0 group-hover:opacity-30 transition-opacity duration-700 blur-xl"></div>
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 opacity-0 group-hover:opacity-30 transition-opacity duration-700 blur-xl about-card-glow"></div>
               
               <div className="relative z-10">
                 <div className="flex items-center gap-6 mb-8">
@@ -130,12 +153,38 @@ const About: React.FC = () => {
             </div>
 
             {/* Fun Facts */}
-            <div className={`group relative p-10 rounded-3xl ${
-              darkMode ? 'bg-gray-800/90 border-gray-600/50' : 'bg-white/95 border-orange-200/50'
-            } backdrop-blur-xl shadow-2xl border ${
-              darkMode ? 'border-gray-600/50' : 'border-orange-200/50'
-            } hover:shadow-3xl transition-all duration-700 hover:-translate-y-6 hover:rotate-1 transform-gpu`}>
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600 opacity-0 group-hover:opacity-30 transition-opacity duration-700 blur-xl"></div>
+            <div className={funFactsCardClass}
+              tabIndex={0}
+              onMouseMove={e => {
+                const card = e.currentTarget;
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * 8;
+                const rotateY = ((x - centerX) / centerX) * 8;
+                let floatTransform = floatingCard === 'funfacts' ? 'translateY(-2rem) scale(1.10) rotateX(-6deg) rotateY(2deg)' : '';
+                card.style.transform = `${floatTransform} rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+              }}
+              onClick={() => {
+                setActiveCard('funfacts');
+                setTimeout(() => setActiveCard(null), 2000);
+              }}
+              onTouchStart={() => setFloatingCard('funfacts')}
+              onTouchEnd={() => setFloatingCard(null)}
+              onMouseDown={() => setFloatingCard('funfacts')}
+              onMouseUp={() => setFloatingCard(null)}
+              onMouseEnter={() => setFloatingCard('funfacts')}
+              onMouseLeave={() => setFloatingCard(null)}
+              onFocus={() => setFloatingCard('funfacts')}
+              onBlur={() => setFloatingCard(null)}
+              style={floatingCard === 'funfacts' ? { transform: 'translateY(-2rem) scale(1.10) rotateX(-6deg) rotateY(2deg)' } : {}}
+            >
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600 opacity-0 group-hover:opacity-30 transition-opacity duration-700 blur-xl about-card-glow"></div>
               
               <div className="relative z-10">
                 <div className="flex items-center gap-4 mb-8">
@@ -162,12 +211,38 @@ const About: React.FC = () => {
 
           {/* Right Side - Technologies */}
           <div className="space-y-8">
-            <div className={`group relative p-10 rounded-3xl ${
-              darkMode ? 'bg-gray-800/90 border-gray-600/50' : 'bg-white/95 border-blue-200/50'
-            } backdrop-blur-xl shadow-2xl border ${
-              darkMode ? 'border-gray-600/50' : 'border-blue-200/50'
-            } hover:shadow-3xl transition-all duration-700 hover:-translate-y-6 hover:rotate-1 transform-gpu`}>
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-30 transition-opacity duration-700 blur-xl"></div>
+            <div className={techCardClass}
+              tabIndex={0}
+              onMouseMove={e => {
+                const card = e.currentTarget;
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * 8;
+                const rotateY = ((x - centerX) / centerX) * 8;
+                let floatTransform = floatingCard === 'tech' ? 'translateY(-2rem) scale(1.10) rotateX(-6deg) rotateY(2deg)' : '';
+                card.style.transform = `${floatTransform} rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+              }}
+              onClick={() => {
+                setActiveCard('tech');
+                setTimeout(() => setActiveCard(null), 2000);
+              }}
+              onTouchStart={() => setFloatingCard('tech')}
+              onTouchEnd={() => setFloatingCard(null)}
+              onMouseDown={() => setFloatingCard('tech')}
+              onMouseUp={() => setFloatingCard(null)}
+              onMouseEnter={() => setFloatingCard('tech')}
+              onMouseLeave={() => setFloatingCard(null)}
+              onFocus={() => setFloatingCard('tech')}
+              onBlur={() => setFloatingCard(null)}
+              style={floatingCard === 'tech' ? { transform: 'translateY(-2rem) scale(1.10) rotateX(-6deg) rotateY(2deg)' } : {}}
+            >
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-30 transition-opacity duration-700 blur-xl about-card-glow"></div>
               
               <div className="relative z-10">
                 <div className="flex items-center gap-4 mb-10">
@@ -180,28 +255,64 @@ const About: React.FC = () => {
                 </div>
 
                 <div className="grid gap-8">
-                  {techCategories.map((category, index) => (
-                    <div key={index} className="group/tech">
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className={`p-3 bg-gradient-to-r ${category.gradient} rounded-xl shadow-lg group-hover/tech:scale-110 transition-transform duration-300`}>
-                          {category.icon}
+                  {techCategories.map((category, index) => {
+                    const techCategoryCardClass = `group/tech about-tech-3d animate-fade-in-up ${activeCard === 'tech' + index ? 'certificate-float certificate-z' : ''} transition-transform duration-700 group-hover/tech:-translate-y-8 group-hover/tech:scale-110 group-hover/tech:rotate-x-6 group-hover/tech:rotate-y-2 group-focus/tech:-translate-y-8 group-focus/tech:scale-110 group-focus/tech:rotate-x-6 group-focus/tech:rotate-y-2 hover:shadow-3xl hover:certificate-hover-glow`;
+                    return (
+                      <div key={index} className={techCategoryCardClass}
+                        tabIndex={0}
+                        onMouseMove={e => {
+                          const card = e.currentTarget;
+                          const rect = card.getBoundingClientRect();
+                          const x = e.clientX - rect.left;
+                          const y = e.clientY - rect.top;
+                          const centerX = rect.width / 2;
+                          const centerY = rect.height / 2;
+                          const rotateX = ((y - centerY) / centerY) * 8;
+                          const rotateY = ((x - centerX) / centerX) * 8;
+                          let floatTransform = floatingCard === 'tech' + index ? 'translateY(-2rem) scale(1.10) rotateX(-6deg) rotateY(2deg)' : '';
+                          card.style.transform = `${floatTransform} rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+                        }}
+                        onMouseLeave={e => {
+                          e.currentTarget.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+                        }}
+                        onClick={() => {
+                          setActiveCard('tech' + index);
+                          setTimeout(() => setActiveCard(null), 2000);
+                        }}
+                        onTouchStart={() => setFloatingCard('tech' + index)}
+                        onTouchEnd={() => setFloatingCard(null)}
+                        onMouseDown={() => setFloatingCard('tech' + index)}
+                        onMouseUp={() => setFloatingCard(null)}
+                        onMouseEnter={() => setFloatingCard('tech' + index)}
+                        onMouseLeave={() => setFloatingCard(null)}
+                        onFocus={() => setFloatingCard('tech' + index)}
+                        onBlur={() => setFloatingCard(null)}
+                        style={floatingCard === 'tech' + index ? { transform: 'translateY(-2rem) scale(1.10) rotateX(-6deg) rotateY(2deg)' } : {}}
+                      >
+                        <div className={`flex items-center gap-4 mb-4 group/tech about-tech-3d animate-fade-in-up
+                          ${activeCard === 'tech' + index ? 'certificate-float certificate-z' : ''}
+                          hover:shadow-3xl hover:-translate-y-10 hover:scale-115 hover:rotate-2 hover:certificate-hover-glow`
+                        }>
+                          <div className={`p-3 bg-gradient-to-r ${category.gradient} rounded-xl shadow-lg group-hover/tech:scale-110 transition-transform duration-300`}>
+                            {category.icon}
+                          </div>
+                          <h4 className={`text-xl font-bold text-gray-900 dark:text-white group-hover/tech:text-transparent group-hover/tech:bg-clip-text group-hover/tech:bg-gradient-to-r group-hover/tech:${category.gradient} transition-all duration-300`}>
+                            {category.name}
+                          </h4>
                         </div>
-                        <h4 className={`text-xl font-bold text-gray-900 dark:text-white group-hover/tech:text-transparent group-hover/tech:bg-clip-text group-hover/tech:bg-gradient-to-r group-hover/tech:${category.gradient} transition-all duration-300`}>
-                          {category.name}
-                        </h4>
+                        <div className="flex flex-wrap gap-3">
+                          {category.techs.map((tech, techIndex) => (
+                            <span
+                              key={techIndex}
+                              className={`px-4 py-3 rounded-full text-sm font-semibold bg-gray-100/90 text-gray-800 border border-gray-300/70 dark:bg-gray-700/80 dark:text-gray-200 dark:border-gray-500/60`}
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
                       </div>
-                      <div className="flex flex-wrap gap-3">
-                        {category.techs.map((tech, techIndex) => (
-                          <span
-                            key={techIndex}
-                            className={`px-4 py-3 rounded-full text-sm font-semibold bg-gray-100/90 text-gray-800 border border-gray-300/70 dark:bg-gray-700/80 dark:text-gray-200 dark:border-gray-500/60`}
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             </div>

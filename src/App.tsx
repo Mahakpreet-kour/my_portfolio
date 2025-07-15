@@ -11,6 +11,7 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AIAssistant from './components/AIAssistant';
+import Certificates from './components/Certificates';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Projects />
         <Blog />
         <Achievements />
+        <Certificates />
         <Skills />
         <Contact />
         <Footer />

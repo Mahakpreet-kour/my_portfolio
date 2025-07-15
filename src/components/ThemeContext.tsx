@@ -16,11 +16,15 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(false); // Default to light mode
+  // Default to dark mode
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     const saved = localStorage.getItem('darkMode');
-    if (saved) {
+    // If no saved preference, use dark mode by default
+    if (saved === null) {
+      setDarkMode(true);
+    } else {
       setDarkMode(JSON.parse(saved));
     }
   }, []);
@@ -29,8 +33,14 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
     if (darkMode) {
       document.documentElement.classList.add('dark');
+      // Add enhanced dark mode styles
+      document.documentElement.style.setProperty('--primary-glow', 'rgba(139, 92, 246, 0.35)');
+      document.documentElement.style.setProperty('--secondary-glow', 'rgba(236, 72, 153, 0.35)');
     } else {
       document.documentElement.classList.remove('dark');
+      // Reset glow variables
+      document.documentElement.style.removeProperty('--primary-glow');
+      document.documentElement.style.removeProperty('--secondary-glow');
     }
   }, [darkMode]);
 
