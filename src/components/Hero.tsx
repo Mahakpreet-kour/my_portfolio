@@ -183,7 +183,7 @@ const Hero: React.FC = () => {
                 <img
                   src={profileImage}
                   alt="Mahakpreet Kour"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-contain"
                 />
               </div>
               {/* Decorative rings */}

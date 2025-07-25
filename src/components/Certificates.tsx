@@ -70,31 +70,32 @@ const Certificates: React.FC = () => {
   };
 
   return (
-    <section id="certificates" className="py-32 relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900">
-      {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-purple-300/50 dark:bg-purple-600/20 blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-pink-300/50 dark:bg-pink-600/20 blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-blue-300/40 dark:bg-blue-600/15 blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-        {/* Floating Certificate/LinkedIn/Star Icons */}
-        {[...Array(16)].map((_, i) => (
+    <section id="certificates" className="py-32 relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-purple-900">
+      {/* 3D Float Background Effects */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* Glowing Orbs */}
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-600/30 rounded-full filter blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-600/30 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-600/30 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        {/* Floating Certificate/LinkedIn/Star/Award Icons */}
+        {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="absolute animate-float-achievement pointer-events-none"
+            className="absolute animate-float-3d"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 6}s`,
-              animationDuration: `${4 + Math.random() * 6}s`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${3 + Math.random() * 4}s`,
               zIndex: 1
             }}
           >
             {i % 3 === 0 ? (
-              <Linkedin className="w-5 h-5 text-blue-500/30" />
+              <Linkedin className="w-6 h-6 text-blue-400/40" />
             ) : i % 3 === 1 ? (
-              <Star className="w-5 h-5 text-yellow-400/30" />
+              <Star className="w-6 h-6 text-yellow-400/40" />
             ) : (
-              <Award className="w-5 h-5 text-purple-400/30" />
+              <Award className="w-6 h-6 text-purple-400/40" />
             )}
           </div>
         ))}

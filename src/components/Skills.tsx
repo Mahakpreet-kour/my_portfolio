@@ -152,7 +152,7 @@ const Skills: React.FC = () => {
                   <div className={`p-4 bg-gradient-to-r ${getCategoryGradient(category)} rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-500`}>
                     {getCategoryIcon(category)}
                   </div>
-                  <h3 className={`text-xl font-bold text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:${getCategoryGradient(category)} transition-all duration-300`}>
+                  <h3 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'} transition-all duration-300`}>
                     {getCategoryName(category)}
                   </h3>
                 </div>
@@ -161,7 +161,7 @@ const Skills: React.FC = () => {
                   {categorySkills.map((skill) => (
                     <div key={skill.name} className="group/skill">
                       <div className="flex justify-between items-center mb-3">
-                        <span className={`text-sm font-semibold text-gray-700 dark:text-gray-300 group-hover/skill:text-transparent group-hover/skill:bg-clip-text group-hover/skill:bg-gradient-to-r group-hover/skill:${getCategoryGradient(category)} transition-all duration-300`}>
+                        <span className={`text-sm font-semibold ${darkMode ? 'text-white' : 'text-gray-900'} transition-all duration-300`}>
                           {skill.name}
                         </span>
                         <div className="flex items-center gap-2">
@@ -203,10 +203,10 @@ const Skills: React.FC = () => {
               <div className="w-20 h-20 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl group-hover:scale-110 transition-transform duration-500">
                 <Brain className="w-10 h-10 text-white" />
               </div>
-              <h3 className={`text-2xl font-bold text-gray-900 dark:text-white mb-4`}>
+              <h3 className="text-2xl font-bold text-white mb-4">
                 AI & ML Expertise
               </h3>
-              <p className={`text-lg text-gray-700 dark:text-gray-300`}>
+              <p className="text-lg text-white">
                 Advanced proficiency in machine learning, deep learning, and AI technologies
               </p>
             </div>
@@ -223,10 +223,10 @@ const Skills: React.FC = () => {
               <div className="w-20 h-20 bg-gradient-to-r from-pink-600 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl group-hover:scale-110 transition-transform duration-500">
                 <Code className="w-10 h-10 text-white" />
               </div>
-              <h3 className={`text-2xl font-bold text-gray-900 dark:text-white mb-4`}>
+              <h3 className="text-2xl font-bold text-white mb-4">
                 Full-Stack Development
               </h3>
-              <p className={`text-lg text-gray-700 dark:text-gray-300`}>
+              <p className="text-lg text-white">
                 End-to-end development with modern frameworks and technologies
               </p>
             </div>
@@ -243,10 +243,10 @@ const Skills: React.FC = () => {
               <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl group-hover:scale-110 transition-transform duration-500">
                 <Cloud className="w-10 h-10 text-white" />
               </div>
-              <h3 className={`text-2xl font-bold text-gray-900 dark:text-white mb-4`}>
+              <h3 className="text-2xl font-bold text-white mb-4">
                 DevOps & Cloud
               </h3>
-              <p className={`text-lg text-gray-700 dark:text-gray-300`}>
+              <p className="text-lg text-white">
                 Infrastructure automation and cloud-native development expertise
               </p>
             </div>

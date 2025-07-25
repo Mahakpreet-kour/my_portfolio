@@ -36,9 +36,9 @@ const About: React.FC = () => {
   ];
 
   // Card class helpers for hover/click float/glow
-  const personalCardClass = `group relative p-10 rounded-3xl about-card-glass animate-fade-in-up ${activeCard === 'personal' ? 'certificate-float certificate-z' : ''} transition-transform duration-700 group-hover:-translate-y-8 group-hover:scale-110 group-hover:rotate-x-6 group-hover:rotate-y-2 group-focus:-translate-y-8 group-focus:scale-110 group-focus:rotate-x-6 group-focus:rotate-y-2 group-focus-visible:-translate-y-8 group-focus-visible:scale-110 group-focus-visible:rotate-x-6 group-focus-visible:rotate-y-2 group-active:-translate-y-8 group-active:scale-110 group-active:rotate-x-6 group-active:rotate-y-2 hover:shadow-3xl hover:certificate-hover-glow`;
-  const funFactsCardClass = `group relative p-10 rounded-3xl about-card-glass animate-fade-in-up ${activeCard === 'funfacts' ? 'certificate-float certificate-z' : ''} transition-transform duration-700 group-hover:-translate-y-8 group-hover:scale-110 group-hover:rotate-x-6 group-hover:rotate-y-2 group-focus:-translate-y-8 group-focus:scale-110 group-focus:rotate-x-6 group-focus:rotate-y-2 hover:shadow-3xl hover:certificate-hover-glow`;
-  const techCardClass = `group relative p-10 rounded-3xl about-card-glass animate-fade-in-up ${activeCard === 'tech' ? 'certificate-float certificate-z' : ''} transition-transform duration-700 group-hover:-translate-y-8 group-hover:scale-110 group-hover:rotate-x-6 group-hover:rotate-y-2 group-focus:-translate-y-8 group-focus:scale-110 group-focus:rotate-x-6 group-focus:rotate-y-2 hover:shadow-3xl hover:certificate-hover-glow`;
+  const personalCardClass = `group relative p-8 rounded-3xl ${darkMode ? 'bg-gray-800/90 border-gray-600/50' : 'bg-white/95 border-purple-200/50'} backdrop-blur-xl shadow-2xl border ${darkMode ? 'border-gray-600/50' : 'border-purple-200/50'} hover:shadow-3xl transition-all duration-700 hover:-translate-y-8 hover:scale-105 transform-gpu`;
+  const funFactsCardClass = `group relative p-8 rounded-3xl ${darkMode ? 'bg-gray-800/90 border-gray-600/50' : 'bg-white/95 border-purple-200/50'} backdrop-blur-xl shadow-2xl border ${darkMode ? 'border-gray-600/50' : 'border-purple-200/50'} hover:shadow-3xl transition-all duration-700 hover:-translate-y-8 hover:scale-105 transform-gpu`;
+  const techCardClass = `group relative p-8 rounded-3xl ${darkMode ? 'bg-gray-800/90 border-gray-600/50' : 'bg-white/95 border-purple-200/50'} backdrop-blur-xl shadow-2xl border ${darkMode ? 'border-gray-600/50' : 'border-purple-200/50'} hover:shadow-3xl transition-all duration-700 hover:-translate-y-8 hover:scale-105 transform-gpu`;
 
   return (
     <section id="about" className={`py-32 relative overflow-hidden ${darkMode ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-purple-900' : 'bg-gradient-to-br from-blue-50 via-white to-purple-100'}`}>
@@ -120,7 +120,7 @@ const About: React.FC = () => {
                     <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full opacity-20 blur-lg group-hover:opacity-40 transition-opacity duration-500"></div>
                   </div>
                   <div>
-                    <h3 className={`text-3xl font-bold text-gray-900 dark:text-white mb-2`}>
+                    <h3 className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'} mb-2`}>
                       {personalInfo.name}
                     </h3>
                     <p className={`text-lg text-purple-600 dark:text-purple-400 font-semibold`}>
@@ -130,22 +130,22 @@ const About: React.FC = () => {
                 </div>
 
                 <div className="space-y-6">
-                  <div className={`flex items-center gap-4 p-4 rounded-2xl ${darkMode ? 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/30' : 'bg-gradient-to-r from-purple-100/80 to-pink-100/80 border border-purple-300/50'}`}>
+                  <div className={`flex items-center gap-4 p-4 rounded-2xl ${darkMode ? 'bg-gray-800/90 border-gray-600/50' : 'bg-white/95 border-purple-200/50'} border`}>
                     <MapPin className="w-6 h-6 text-purple-600" />
-                    <span className={`text-lg text-gray-700 dark:text-gray-300 font-medium`}>
+                    <span className={`text-lg ${darkMode ? 'text-white' : 'text-gray-900'} font-medium`}>
                       {personalInfo.location}
                     </span>
                   </div>
-                  <div className={`flex items-center gap-4 p-4 rounded-2xl ${darkMode ? 'bg-gradient-to-r from-pink-500/20 to-red-500/20 border border-pink-400/30' : 'bg-gradient-to-r from-pink-100/80 to-red-100/80 border border-pink-300/50'}`}>
+                  <div className={`flex items-center gap-4 p-4 rounded-2xl ${darkMode ? 'bg-gray-800/90 border-gray-600/50' : 'bg-white/95 border-purple-200/50'} border`}>
                     <Heart className="w-6 h-6 text-pink-600" />
-                    <span className={`text-lg text-gray-700 dark:text-gray-300 font-medium`}>
+                    <span className={`text-lg ${darkMode ? 'text-white' : 'text-gray-900'} font-medium`}>
                       Passionate about Innovation & AI
                     </span>
                   </div>
                 </div>
 
-                <div className={`mt-8 p-6 rounded-2xl ${darkMode ? 'bg-gray-700/50 border-gray-500/40' : 'bg-gradient-to-r from-blue-50/90 to-purple-50/90 border-blue-300/60'} border`}>
-                  <p className={`text-lg leading-relaxed text-gray-700 dark:text-gray-300`}>
+                <div className={`mt-8 p-6 rounded-2xl ${darkMode ? 'bg-gray-800/90 border-gray-600/50' : 'bg-white/95 border-purple-200/50'} border`}>
+                  <p className={`text-lg leading-relaxed ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                     {personalInfo.bio}
                   </p>
                 </div>
@@ -169,6 +169,7 @@ const About: React.FC = () => {
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+                setFloatingCard(null);
               }}
               onClick={() => {
                 setActiveCard('funfacts');
@@ -179,7 +180,6 @@ const About: React.FC = () => {
               onMouseDown={() => setFloatingCard('funfacts')}
               onMouseUp={() => setFloatingCard(null)}
               onMouseEnter={() => setFloatingCard('funfacts')}
-              onMouseLeave={() => setFloatingCard(null)}
               onFocus={() => setFloatingCard('funfacts')}
               onBlur={() => setFloatingCard(null)}
               style={floatingCard === 'funfacts' ? { transform: 'translateY(-2rem) scale(1.10) rotateX(-6deg) rotateY(2deg)' } : {}}
@@ -191,17 +191,17 @@ const About: React.FC = () => {
                   <div className="p-3 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl shadow-lg">
                     <Lightbulb className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className={`text-2xl font-bold text-gray-900 dark:text-white`}>
+                  <h3 className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                     Fun Facts & Achievements
                   </h3>
                 </div>
                 <div className="grid gap-4">
                   {personalInfo.funFacts.map((fact, index) => (
-                    <div key={index} className={`flex items-start gap-4 p-4 rounded-xl ${darkMode ? 'bg-gray-700/60 border-gray-500/40' : 'bg-gradient-to-r from-yellow-50/90 to-orange-50/90 border-yellow-300/60'} border hover:scale-105 transition-transform duration-300`}>
+                    <div key={index} className={`flex items-start gap-4 p-4 rounded-xl ${darkMode ? 'bg-gray-800/90 border-gray-600/50' : 'bg-white/95 border-purple-200/50'} border hover:scale-105 transition-transform duration-300`}>
                       <div className="p-2 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg shadow-md">
                         <Rocket className="w-4 h-4 text-white" />
                       </div>
-                      <span className={`text-gray-700 dark:text-gray-300 font-medium`}>{fact}</span>
+                      <span className={`font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>{fact}</span>
                     </div>
                   ))}
                 </div>
@@ -237,7 +237,6 @@ const About: React.FC = () => {
               onMouseDown={() => setFloatingCard('tech')}
               onMouseUp={() => setFloatingCard(null)}
               onMouseEnter={() => setFloatingCard('tech')}
-              onMouseLeave={() => setFloatingCard(null)}
               onFocus={() => setFloatingCard('tech')}
               onBlur={() => setFloatingCard(null)}
               style={floatingCard === 'tech' ? { transform: 'translateY(-2rem) scale(1.10) rotateX(-6deg) rotateY(2deg)' } : {}}
@@ -284,7 +283,6 @@ const About: React.FC = () => {
                         onMouseDown={() => setFloatingCard('tech' + index)}
                         onMouseUp={() => setFloatingCard(null)}
                         onMouseEnter={() => setFloatingCard('tech' + index)}
-                        onMouseLeave={() => setFloatingCard(null)}
                         onFocus={() => setFloatingCard('tech' + index)}
                         onBlur={() => setFloatingCard(null)}
                         style={floatingCard === 'tech' + index ? { transform: 'translateY(-2rem) scale(1.10) rotateX(-6deg) rotateY(2deg)' } : {}}
