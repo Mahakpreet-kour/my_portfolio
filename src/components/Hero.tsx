@@ -157,7 +157,7 @@ const Hero: React.FC = () => {
           {/* Right Side - Profile Image with Enhanced Effects */}
           <div className="flex-1 relative perspective-3d group">
             <div 
-              className="relative w-80 h-80 mx-auto transform hero-profile-3d group"
+              className="relative w-96 h-96 mx-auto transform hero-profile-3d group"
               tabIndex={0}
               onMouseMove={e => {
                 const card = e.currentTarget;
@@ -183,7 +183,7 @@ const Hero: React.FC = () => {
                 <img
                   src={profileImage}
                   alt="Mahakpreet Kour"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               {/* Decorative rings */}
