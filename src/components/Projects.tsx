@@ -61,7 +61,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className={`py-32 relative overflow-hidden ${darkMode ? 'bg-gray-900' : 'bg-gradient-to-br from-pink-100 via-blue-100 via-60% to-yellow-100'}`}>
+    <section id="projects" className={`py-20 relative overflow-hidden ${darkMode ? 'bg-gray-900' : 'bg-gradient-to-br from-pink-100 via-blue-100 via-60% to-yellow-100'}`}>
       {/* Ultra-Professional Animated Background */}
       <div className="absolute inset-0">
         {/* Vibrant multi-stop gradient */}
@@ -84,7 +84,7 @@ const Projects: React.FC = () => {
         <div className={`absolute bottom-1/3 right-1/3 w-72 h-72 rounded-full filter blur-3xl animate-pulse ${darkMode ? 'bg-yellow-300/10' : 'bg-white/30'}`} style={{ animationDelay: '3.2s' }}></div>
         <div className={`absolute top-1/2 left-1/4 w-60 h-60 rounded-full filter blur-2xl animate-pulse ${darkMode ? 'bg-white/10' : 'bg-pink-100/30'}`} style={{ animationDelay: '4.2s' }}></div>
         {/* Floating Certificate/Star/Award Icons - with gold/white star */}
-        {[...Array(18)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <div
             key={i}
             className="absolute animate-float-achievement pointer-events-none"
@@ -99,93 +99,69 @@ const Projects: React.FC = () => {
             {i % 4 === 0 ? (
               <Certificate className={`w-6 h-6 ${darkMode ? 'text-cyan-400/40' : 'text-pink-400/30'} drop-shadow-lg`} />
             ) : i % 4 === 1 ? (
-              <Star className={`w-6 h-6 ${darkMode ? 'text-yellow-300/60' : 'text-yellow-400/50'} drop-shadow-lg`} />
+              <Star className={`w-6 h-6 ${darkMode ? 'text-yellow-300/40' : 'text-yellow-400/30'} drop-shadow-lg`} />
             ) : i % 4 === 2 ? (
-              <Award className={`w-6 h-6 ${darkMode ? 'text-purple-400/40' : 'text-blue-400/30'} drop-shadow-lg`} />
+              <Award className={`w-6 h-6 ${darkMode ? 'text-emerald-400/40' : 'text-emerald-500/30'} drop-shadow-lg`} />
             ) : (
-              <Star className={`w-6 h-6 ${darkMode ? 'text-white/40' : 'text-purple-400/30'} drop-shadow-lg`} />
+              <Rocket className={`w-6 h-6 ${darkMode ? 'text-purple-400/40' : 'text-purple-500/30'} drop-shadow-lg`} />
             )}
           </div>
         ))}
       </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-20">
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Enhanced Header */}
+        <div className="text-center mb-16">
           <div className="inline-block p-6 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full mb-8 shadow-2xl hover:scale-110 transition-transform duration-500">
-            <Rocket className="w-10 h-10 text-white" />
+            <Code className="w-10 h-10 text-white" />
           </div>
-          <h2 className="text-6xl md:text-7xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400">
+          <h2 className={`text-5xl md:text-6xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'} bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600`}>
             My Projects
           </h2>
-          <div className="w-40 h-2 mx-auto rounded-full mb-12 shadow-lg"
-            style={darkMode ? { background: 'linear-gradient(to right, #7c3aed, #ec4899, #2563eb)' } : { background: 'linear-gradient(to right, #000, #222, #444)' }}
-          ></div>
-          <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Showcasing innovation through AI, full-stack development, and automation solutions
+          <div className="w-32 h-2 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 mx-auto rounded-full mb-8 shadow-xl"></div>
+          <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
+            Showcasing innovative solutions and cutting-edge technologies
           </p>
         </div>
-        {/* Random Project Button */}
-        <div className="flex justify-center mb-10">
-          <button
-            className="px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 text-white font-bold text-lg shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-cyan-400/40"
-            onClick={() => {
-              if (filteredProjects.length === 0) return;
-              let randomIdx = Math.floor(Math.random() * filteredProjects.length);
-              let randomId = filteredProjects[randomIdx].id;
-              setRandomProjectId(randomId);
-              setTimeout(() => {
-                if (projectRefs.current[randomId]) {
-                  projectRefs.current[randomId]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-              }, 100);
-            }}
-          >
-            Show Random Project
-          </button>
-        </div>
-        {/* Enhanced Search and Filter Section */}
-        <div className="max-w-4xl mx-auto mb-16">
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-          {categories.map((category) => (
-            <button
-              key={category.id}
+
+        {/* Enhanced Search and Filter Bar */}
+        <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center items-center">
+          {/* Search Bar */}
+          <div className={`relative flex-1 max-w-md ${isSearchFocused ? 'scale-105' : 'scale-100'} transition-transform duration-300`}>
+            <Search className={`absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 ${isSearchFocused ? 'text-purple-500' : darkMode ? 'text-gray-400' : 'text-gray-500'} transition-colors duration-300`} />
+            <input
+              type="text"
+              placeholder="Search projects, technologies..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              onFocus={() => setIsSearchFocused(true)}
+              onBlur={() => setIsSearchFocused(false)}
+              className={`w-full pl-12 pr-4 py-3 rounded-2xl border-2 ${isSearchFocused ? 'border-purple-500' : darkMode ? 'border-gray-600' : 'border-gray-300'} ${darkMode ? 'bg-gray-800 text-white placeholder-gray-400' : 'bg-white text-gray-900 placeholder-gray-500'} focus:outline-none focus:ring-4 focus:ring-purple-500/20 transition-all duration-300 shadow-lg`}
+            />
+          </div>
+
+          {/* Category Filter Pills */}
+          <div className="flex flex-wrap gap-3 justify-center">
+            {categories.map((category) => (
+              <button
+                key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`group relative px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
-                activeCategory === category.id
-                    ? 'bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 text-white shadow-lg'
-                    : 'bg-white/10 text-gray-300 hover:bg-white/20 backdrop-blur-sm'
-              }`}
-            >
-                <span className="relative z-10 flex items-center gap-2">
-                  {category.name}
-                  <span className="px-2 py-0.5 text-sm bg-white/20 rounded-full">
-                    {category.count}
-                  </span>
-                </span>
-            </button>
-          ))}
-        </div>
-          {/* Enhanced Search Bar */}
-          <div className="relative max-w-2xl mx-auto">
-            <div className={`relative transition-all duration-300 ${
-              isSearchFocused ? 'scale-105' : 'scale-100'
-            }`}>
-          <input
-            type="text"
-                placeholder="Search projects by name, technology, or description..."
-            value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                onFocus={() => setIsSearchFocused(true)}
-                onBlur={() => setIsSearchFocused(false)}
-                className="w-full px-6 py-4 bg-white/10 backdrop-blur-md text-gray-300 rounded-full border border-white/20 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none transition-all duration-300"
-              />
-              <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-            </div>
+                className={`px-6 py-3 rounded-2xl font-semibold text-sm transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${
+                  activeCategory === category.id
+                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
+                    : darkMode
+                    ? 'bg-gray-800 text-gray-300 border border-gray-600 hover:border-purple-500'
+                    : 'bg-white text-gray-700 border border-gray-300 hover:border-purple-500'
+                }`}
+              >
+                {category.name} ({category.count})
+              </button>
+            ))}
           </div>
         </div>
+
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => {
             const htmlJsRepo = 'https://github.com/Mahakpreet-kour/HTML_and_JS_projects.git';
             return (

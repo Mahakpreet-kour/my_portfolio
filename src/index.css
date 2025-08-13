@@ -56,6 +56,10 @@ html {
     animation: scale 0.3s ease-out;
   }
 
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out;
+  }
+
   @keyframes float {
     0%, 100% {
       transform: translateY(0px) rotate(0deg);
@@ -179,6 +183,17 @@ html {
   @keyframes scale {
     from {
       transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.5);
       opacity: 0;
     }
     to {

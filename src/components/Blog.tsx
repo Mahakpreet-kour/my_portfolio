@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Book, Search, ExternalLink, Calendar, Clock, Tag, ChevronRight } from 'lucide-react';
+import { Book, Search, ExternalLink, Calendar, Clock, Tag, ChevronRight, BookOpen } from 'lucide-react';
 import { blogPosts } from '../data/portfolioData';
 import { useTheme } from './ThemeContext';
 
@@ -35,46 +35,49 @@ const Blog: React.FC = () => {
   };
 
   return (
-    <section id="blog" className={`py-32 relative overflow-hidden ${darkMode ? 'bg-gradient-to-br from-gray-900 via-indigo-900 to-violet-900' : 'bg-gradient-to-br from-pink-100 via-blue-100 via-60% to-yellow-100'}`}>
+    <section id="blog" className={`py-20 relative overflow-hidden ${darkMode ? 'bg-gray-900' : 'bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100'}`}>
       {/* Enhanced Animated Background */}
       <div className="absolute inset-0">
-        {/* Vibrant multi-stop gradient */}
-        <div className={`absolute inset-0 ${darkMode ? 'bg-gradient-to-br from-gray-900 via-indigo-900 to-violet-900 opacity-95' : 'bg-gradient-to-br from-pink-100 via-blue-100 via-60% to-yellow-100 opacity-90'}`}></div>
-        {/* Subtle radial grid overlay */}
-        <div className="absolute inset-0" style={{
-          backgroundImage: darkMode ? `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.10) 1px, transparent 0)` : `radial-gradient(circle at 2px 2px, rgba(0,0,0,0.04) 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }}></div>
-        {/* Animated conic gradient overlay */}
-        <div className="absolute inset-0 pointer-events-none" style={{
-          background: darkMode ? 'conic-gradient(from 180deg at 50% 50%, rgba(139,92,246,0.10) 0deg, rgba(16,185,129,0.10) 120deg, rgba(253,224,71,0.10) 240deg, rgba(236,72,153,0.10) 360deg)' : 'conic-gradient(from 180deg at 50% 50%, rgba(236,72,153,0.10) 0deg, rgba(59,130,246,0.10) 120deg, rgba(253,224,71,0.10) 240deg, rgba(255,255,255,0.10) 360deg)',
-          animation: 'rotate 18s linear infinite'
-        }}></div>
-        {/* Glowing Orbs - more variety, premium colors */}
-        <div className={`absolute top-1/4 right-1/4 w-[32rem] h-[32rem] rounded-full filter blur-3xl animate-pulse ${darkMode ? 'bg-indigo-600/30' : 'bg-pink-300/30'}`}></div>
-        <div className={`absolute bottom-1/4 left-1/4 w-[28rem] h-[28rem] rounded-full filter blur-3xl animate-pulse ${darkMode ? 'bg-violet-600/20' : 'bg-blue-200/30'}`} style={{ animationDelay: '1.2s' }}></div>
-        <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] rounded-full filter blur-3xl animate-pulse ${darkMode ? 'bg-emerald-400/15' : 'bg-yellow-200/25'}`} style={{ animationDelay: '2.2s' }}></div>
-        <div className={`absolute top-1/3 left-1/3 w-80 h-80 rounded-full filter blur-3xl animate-pulse ${darkMode ? 'bg-yellow-300/10' : 'bg-purple-200/20'}`} style={{ animationDelay: '2.8s' }}></div>
-        <div className={`absolute bottom-1/3 right-1/3 w-72 h-72 rounded-full filter blur-3xl animate-pulse ${darkMode ? 'bg-white/10' : 'bg-white/30'}`} style={{ animationDelay: '3.2s' }}></div>
-        <div className={`absolute top-1/2 left-1/4 w-60 h-60 rounded-full filter blur-2xl animate-pulse ${darkMode ? 'bg-white/10' : 'bg-pink-100/30'}`} style={{ animationDelay: '4.2s' }}></div>
+        {/* Multi-layered gradient background */}
+        <div className={`absolute inset-0 ${darkMode ? 'bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900' : 'bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100'}`}></div>
+        
+        {/* Animated grid pattern */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+        
+        {/* Floating elements */}
+        {[...Array(8)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute animate-float"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${4 + Math.random() * 6}s`
+            }}
+          >
+            <div className={`w-3 h-3 ${darkMode ? 'bg-purple-400/50' : 'bg-purple-600/40'} rounded-full blur-sm`}></div>
+          </div>
+        ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-20">
-          <div className="inline-block p-6 bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 rounded-full mb-8 shadow-2xl hover:scale-110 transition-transform duration-500 flex items-center justify-center gap-2">
-            {/* Medium SVG Icon */}
-            <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 40 40"><ellipse cx="10" cy="20" rx="8" ry="12"/><ellipse cx="30" cy="20" rx="8" ry="12"/><ellipse cx="20" cy="20" rx="4" ry="12"/></svg>
-            <Book className="w-8 h-8 text-white opacity-80" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Enhanced Header */}
+        <div className="text-center mb-16">
+          <div className="inline-block p-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full mb-8 shadow-2xl hover:scale-110 transition-transform duration-500">
+            <BookOpen className="w-10 h-10 text-white" />
           </div>
-          <h2 className="text-6xl md:text-7xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400">
-            Technical Blog
+          <h2 className={`text-5xl md:text-6xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'} bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600`}>
+            Latest Articles
           </h2>
-          <div className="w-40 h-2 mx-auto rounded-full mb-12 shadow-lg"
-            style={darkMode ? { background: 'linear-gradient(to right, #2563eb, #06b6d4, #14b8a6)' } : { background: 'linear-gradient(to right, #000, #222, #444)' }}
-          ></div>
-          <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Sharing knowledge and experiences in AI, DevOps, and cloud technologies
+          <div className="w-32 h-2 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mx-auto rounded-full mb-8 shadow-xl"></div>
+          <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
+            Insights and tutorials on AI, DevOps, and modern technologies
           </p>
         </div>
 

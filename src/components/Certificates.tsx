@@ -70,15 +70,24 @@ const Certificates: React.FC = () => {
   };
 
   return (
-    <section id="certificates" className="py-32 relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-purple-900">
-      {/* 3D Float Background Effects */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <section id="certificates" className="py-20 relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+      {/* Enhanced Animated Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Animated Grid Pattern */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+        
         {/* Glowing Orbs */}
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-600/30 rounded-full filter blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-600/30 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-600/30 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-        {/* Floating Certificate/LinkedIn/Star/Award Icons */}
-        {[...Array(20)].map((_, i) => (
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-purple-600/20 blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 rounded-full bg-blue-600/20 blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-pink-600/15 blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        
+        {/* Floating Certificate Icons */}
+        {[...Array(12)].map((_, i) => (
           <div
             key={i}
             className="absolute animate-float-3d"
@@ -86,85 +95,109 @@ const Certificates: React.FC = () => {
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`,
-              zIndex: 1
+              animationDuration: `${4 + Math.random() * 6}s`,
+              zIndex: Math.floor(Math.random() * 10)
             }}
           >
             {i % 3 === 0 ? (
-              <Linkedin className="w-6 h-6 text-blue-400/40" />
+              <Linkedin className="w-6 h-6 text-blue-400/40 hover:text-blue-300/60 transition-colors duration-300" />
             ) : i % 3 === 1 ? (
-              <Star className="w-6 h-6 text-yellow-400/40" />
+              <Star className="w-6 h-6 text-yellow-400/40 hover:text-yellow-300/60 transition-colors duration-300" />
             ) : (
-              <Award className="w-6 h-6 text-purple-400/40" />
+              <Award className="w-6 h-6 text-purple-400/40 hover:text-purple-300/60 transition-colors duration-300" />
             )}
           </div>
         ))}
       </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
-          <div className="inline-block p-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mb-8 shadow-2xl hover:scale-110 transition-transform duration-500">
-            <Linkedin className="w-10 h-10 text-white" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Enhanced Header */}
+        <div className="text-center mb-16">
+          <div className="inline-block p-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full mb-8 shadow-2xl hover:scale-110 transition-transform duration-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]">
+            <Award className="w-10 h-10 text-white" />
           </div>
-          <h2 className="text-6xl md:text-7xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
-            Certificates
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+            Professional Certifications
           </h2>
-          <div className="w-40 h-2 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mx-auto rounded-full mb-12 shadow-xl"></div>
-          <p className="text-2xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            My professional certifications and achievements
+          <div className="w-32 h-2 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mx-auto rounded-full mb-8 shadow-xl"></div>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Validating expertise in AI, cloud computing, and modern technologies
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {certificates.map((cert, idx) => (
+
+        {/* Certificates Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {certificates.map((certificate, index) => (
             <div
-              key={cert.id}
-              tabIndex={0}
-              role="button"
-              onClick={() => {
-                window.open(cert.link, '_blank', 'noopener,noreferrer');
-                handleCardClick(cert.id);
+              key={certificate.id}
+              className={`group relative p-8 rounded-3xl bg-gray-800/95 border border-gray-600/50 backdrop-blur-xl shadow-2xl hover:shadow-[0_0_50px_rgba(168,85,247,0.3)] transition-all duration-700 hover:-translate-y-4 hover:scale-105 transform-gpu cursor-pointer ${
+                activeCard === certificate.id ? 'ring-4 ring-purple-500/50' : ''
+              }`}
+              onClick={() => handleCardClick(certificate.id)}
+              style={{
+                background: 'linear-gradient(135deg, rgba(31, 41, 55, 0.95) 0%, rgba(55, 65, 81, 0.9) 100%)'
               }}
-              onKeyDown={e => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  window.open(cert.link, '_blank', 'noopener,noreferrer');
-                  handleCardClick(cert.id);
-                }
-              }}
-              className={`group relative p-8 rounded-3xl bg-gray-900/80 dark:bg-gray-900/90 border backdrop-blur-xl shadow-2xl border-blue-200/30 dark:border-purple-600/30 transition-all duration-700 transform-gpu animate-fade-in-up cursor-pointer
-                ${activeCard === cert.id ? 'certificate-float certificate-z' : ''}
-                hover:shadow-3xl hover:-translate-y-10 hover:scale-115 hover:certificate-hover-glow
-              `}
-              style={{ animationDelay: `${idx * 100}ms`, zIndex: activeCard === cert.id ? 30 : 2 }}
             >
-              {/* Glowing border effect */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-60 transition-opacity duration-700 blur-xl certificate-hover-glow"></div>
-              <div className="relative z-10 flex flex-col h-full">
-                <div className="flex items-center gap-4 mb-6">
-                  {cert.platform.toLowerCase().includes('linkedin') && (
-                    <span className="p-3 bg-blue-600 rounded-xl shadow-lg">
-                      <Linkedin className="w-7 h-7 text-white" />
+              {/* Enhanced glowing border effect */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-40 transition-opacity duration-700 blur-xl"></div>
+              
+              <div className="relative z-10">
+                {/* Certificate Icon */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="p-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.4)]">
+                    <Award className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-right">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-blue-500 to-purple-500 text-white">
+                      {certificate.platform}
                     </span>
-                  )}
-                  <h3 className="text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-pink-400 transition-all duration-300 mb-2 certificate-title-gradient">
-                    {cert.title}
-                  </h3>
+                  </div>
                 </div>
-                <p className="text-gray-300 leading-relaxed text-lg mb-6 flex-1">
-                  {cert.description}
-                </p>
-                <div className="flex items-center justify-between mt-auto">
-                  <span className="inline-block px-4 py-2 rounded-full text-xs font-bold bg-blue-900/60 text-blue-200 border border-blue-700 capitalize">
-                    {cert.platform}
-                  </span>
-                  <span
-                    className="ml-4 px-5 py-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-sm shadow-lg flex items-center gap-2 select-none pointer-events-none"
+
+                {/* Certificate Content */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-300">
+                    {certificate.title}
+                  </h3>
+                  
+                  <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                    {certificate.description}
+                  </p>
+
+                  {/* View Certificate Button */}
+                  <a
+                    href={certificate.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-500 hover:to-purple-500 hover:scale-105 hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all duration-300 group/link"
                   >
-                    <Linkedin className="w-5 h-5" />
-                    View Certificate
-                  </span>
+                    <span>View Certificate</span>
+                    <Linkedin className="w-4 h-4 group-hover/link:scale-110 transition-transform duration-300" />
+                  </a>
+                </div>
+
+                {/* Certificate Badge */}
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="p-2 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full shadow-lg">
+                    <Star className="w-4 h-4 text-white" />
+                  </div>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center mt-16">
+          <div className="inline-block p-6 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mb-8 shadow-2xl hover:scale-110 transition-transform duration-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]">
+            <Star className="w-10 h-10 text-white" />
+          </div>
+          <h3 className="text-2xl font-bold text-white mb-4">
+            Continuous Learning Journey
+          </h3>
+          <p className="text-gray-300 max-w-2xl mx-auto">
+            Committed to staying updated with the latest technologies and industry best practices
+          </p>
         </div>
       </div>
     </section>

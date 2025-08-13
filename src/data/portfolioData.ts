@@ -38,7 +38,19 @@ export interface Skill {
 }
 
 export const projects: Project[] = [
-  // MAIN PROJECTS (now 15)
+  // MAIN PROJECTS (now 16)
+  {
+    id: 'smartops-ai-all-in-one-menu-dashboard',
+    title: 'SmartOps AI All-in-One Menu Dashboard',
+    description: 'A highly powerful and student-friendly project that integrates system control, AI, automation, and machine learning into one streamlined console.',
+    techStack: ['Python', 'AI', 'Machine Learning', 'Automation', 'System Control'],
+    problem: 'Centralizes system control, AI tools, and automation in one powerful dashboard.',
+    githubLink: 'https://github.com/Mahakpreet-kour/SmartOps-AI-All-in-One-Menu-Dashboard',
+    image: '',
+    category: 'main',
+    priority: 'high',
+    completed: true
+  },
   {
     id: 'career-guidance-ai-chatbot',
     title: 'Career Guidance AI Chatbot',
@@ -895,7 +907,7 @@ export const skills: Skill[] = [
   { name: 'CSS', level: 80, category: 'fullstack' },
   { name: 'JavaScript', level: 78, category: 'fullstack' },
   { name: 'Flask API', level: 85, category: 'fullstack' },
-  { name: 'Bootstrap', level: 82, category: 'fullstack' },
+  { name: 'Ansible', level: 85, category: 'devops' },
   { name: 'DevOps', level: 85, category: 'devops' }
 ];
 

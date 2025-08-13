@@ -2,7 +2,6 @@ import React from 'react';
 import { ThemeProvider } from './components/ThemeContext';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
-import AISection from './components/AISection';
 import About from './components/About';
 import Projects from './components/Projects';
 import Blog from './components/Blog';
@@ -19,7 +18,6 @@ function App() {
       <div className="min-h-screen">
         <Navigation />
         <Hero />
-        <AISection />
         <About />
         <Projects />
         <Blog />

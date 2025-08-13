@@ -89,168 +89,122 @@ const Skills: React.FC = () => {
   }, {} as { [key: string]: typeof skills });
 
   return (
-    <section id="skills" className={`py-32 relative overflow-hidden ${darkMode ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-purple-900' : 'bg-gradient-to-br from-blue-50 via-white to-purple-100'}`}>
-      {/* Animated Background */}
+    <section id="skills" className="py-20 relative overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900">
+      {/* Enhanced Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className={`absolute -top-40 -right-40 w-96 h-96 rounded-full ${darkMode ? 'bg-purple-600/20' : 'bg-purple-300/50'} blur-3xl animate-pulse`}></div>
-        <div className={`absolute -bottom-40 -left-40 w-96 h-96 rounded-full ${darkMode ? 'bg-pink-600/20' : 'bg-pink-300/50'} blur-3xl animate-pulse`} style={{ animationDelay: '1s' }}></div>
-        <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full ${darkMode ? 'bg-blue-600/15' : 'bg-blue-300/40'} blur-3xl animate-pulse`} style={{ animationDelay: '2s' }}></div>
+        {/* Animated Grid Pattern */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+        
+        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-purple-600/20 blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-pink-600/20 blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-blue-600/15 blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
         
         {/* Floating Code Elements */}
-        {[...Array(20)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <div
             key={i}
-            className="absolute animate-float"
+            className="absolute animate-float-3d"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${4 + Math.random() * 6}s`
+              animationDuration: `${4 + Math.random() * 6}s`,
+              zIndex: Math.floor(Math.random() * 10)
             }}
           >
-            <Sparkles className={`w-3 h-3 ${darkMode ? 'text-purple-400/50' : 'text-purple-600/40'}`} />
+            {i % 4 === 0 ? (
+              <Code className="w-6 h-6 text-purple-400/40 hover:text-purple-300/60 transition-colors duration-300" />
+            ) : i % 4 === 1 ? (
+              <Brain className="w-6 h-6 text-pink-400/40 hover:text-pink-300/60 transition-colors duration-300" />
+            ) : i % 4 === 2 ? (
+              <Cloud className="w-6 h-6 text-blue-400/40 hover:text-blue-300/60 transition-colors duration-300" />
+            ) : (
+              <Layers className="w-6 h-6 text-indigo-400/40 hover:text-indigo-300/60 transition-colors duration-300" />
+            )}
           </div>
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-24">
-          <div className="inline-block p-6 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mb-8 shadow-2xl hover:scale-110 transition-transform duration-500">
-            <Rocket className="w-10 h-10 text-white" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Enhanced Header */}
+        <div className="text-center mb-16">
+          <div className="inline-block p-6 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full mb-8 shadow-2xl hover:scale-110 transition-transform duration-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]">
+            <Zap className="w-10 h-10 text-white" />
           </div>
-          <h2 className={`text-6xl md:text-7xl font-bold mb-8 text-gray-900 dark:text-white bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600`}>
-            Technical Expertise
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400">
+            Skills & Expertise
           </h2>
-          <div className="w-40 h-2 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 mx-auto rounded-full mb-12 shadow-xl"></div>
-          <p className={`text-2xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed`}>
-            Mastering cutting-edge technologies with hands-on experience and proven expertise
+          <div className="w-32 h-2 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 mx-auto rounded-full mb-8 shadow-xl"></div>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Core competencies and technical skills across multiple domains
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          {Object.entries(groupedSkills).map(([category, categorySkills]) => (
+        {/* Skills Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {skills.map((skill, index) => (
             <div
-              key={category}
-              className={`group relative p-8 rounded-3xl ${
-                darkMode ? 'bg-gray-800/90 border-gray-600/50' : 'bg-white/95 border-purple-200/50'
-              } backdrop-blur-xl shadow-2xl border ${
-                darkMode ? 'border-gray-600/50' : 'border-purple-200/50'
-              } hover:shadow-3xl transition-all duration-700 hover:-translate-y-8 hover:scale-105 transform-gpu`}
-              onMouseEnter={() => setHoveredCategory(category)}
-              onMouseLeave={() => setHoveredCategory(null)}
+              key={skill.name}
+              className="group relative p-6 rounded-3xl bg-gray-800/95 border border-gray-600/50 backdrop-blur-xl shadow-2xl hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all duration-700 hover:-translate-y-4 hover:scale-105 transform-gpu text-center"
               style={{
-                background: darkMode 
-                  ? 'linear-gradient(135deg, rgba(31, 41, 55, 0.95) 0%, rgba(55, 65, 81, 0.9) 100%)'
-                  : 'linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%)'
+                background: 'linear-gradient(135deg, rgba(31, 41, 55, 0.95) 0%, rgba(55, 65, 81, 0.9) 100%)'
               }}
             >
-              {/* Glowing border effect */}
-              <div className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${getCategoryGradient(category)} opacity-0 group-hover:opacity-30 transition-opacity duration-700 blur-xl`}></div>
+              {/* Enhanced glowing border effect */}
+              <div className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${getCategoryGradient(skill.category)} opacity-0 group-hover:opacity-40 transition-opacity duration-700 blur-xl`}></div>
               
               <div className="relative z-10">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className={`p-4 bg-gradient-to-r ${getCategoryGradient(category)} rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-500`}>
-                    {getCategoryIcon(category)}
-                  </div>
-                  <h3 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'} transition-all duration-300`}>
-                    {getCategoryName(category)}
-                  </h3>
+                {/* Skill Icon */}
+                <div className={`w-16 h-16 bg-gradient-to-r ${getCategoryGradient(skill.category)} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]`}>
+                  {getCategoryIcon(skill.category)}
                 </div>
-                
-                <div className="space-y-6">
-                  {categorySkills.map((skill) => (
-                    <div key={skill.name} className="group/skill">
-                      <div className="flex justify-between items-center mb-3">
-                        <span className={`text-sm font-semibold ${darkMode ? 'text-white' : 'text-gray-900'} transition-all duration-300`}>
-                          {skill.name}
-                        </span>
-                        <div className="flex items-center gap-2">
-                          <span className={`text-sm font-bold text-purple-600 dark:text-purple-400`}>
-                            {animatedSkills[skill.name] || 0}%
-                          </span>
-                          <Zap className="w-4 h-4 text-yellow-500" />
-                        </div>
-                      </div>
-                      <div className={`relative w-full ${darkMode ? 'bg-gray-700/50' : 'bg-gray-200'} rounded-full h-3 overflow-hidden shadow-inner`}>
-                        <div 
-                          className={`h-full bg-gradient-to-r ${getCategoryGradient(category)} rounded-full transition-all duration-1000 ease-out shadow-lg relative overflow-hidden`}
-                          style={{ 
-                            width: `${animatedSkills[skill.name] || 0}%`,
-                          }}
-                        >
-                          {/* Shimmer effect */}
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
-                        </div>
-                      </div>
-                    </div>
+
+                {/* Skill Name */}
+                <h3 className="text-lg font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300 mb-3">
+                  {skill.name}
+                </h3>
+
+                {/* Skill Level Indicator */}
+                <div className="flex justify-center items-center gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <div
+                      key={i}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        i < Math.floor(skill.level / 20)
+                          ? `bg-gradient-to-r ${getCategoryGradient(skill.category)}`
+                          : 'bg-gray-600'
+                      }`}
+                    ></div>
                   ))}
+                </div>
+
+                {/* Category Badge */}
+                <div className="mt-3">
+                  <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${getCategoryGradient(skill.category)} text-white opacity-80 group-hover:opacity-100 transition-opacity duration-300`}>
+                    {getCategoryName(skill.category)}
+                  </span>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Enhanced Overall Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className={`group relative text-center p-10 rounded-3xl ${
-            darkMode ? 'bg-gray-800/90 border-gray-600/50' : 'bg-white/95 border-purple-200/50'
-          } backdrop-blur-xl shadow-2xl border ${
-            darkMode ? 'border-gray-600/50' : 'border-purple-200/50'
-          } hover:shadow-3xl transition-all duration-700 hover:-translate-y-8 hover:scale-105 transform-gpu`}>
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-30 transition-opacity duration-700 blur-xl"></div>
-            
-            <div className="relative z-10">
-              <div className="w-20 h-20 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl group-hover:scale-110 transition-transform duration-500">
-                <Brain className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-4">
-                AI & ML Expertise
-              </h3>
-              <p className="text-lg text-white">
-                Advanced proficiency in machine learning, deep learning, and AI technologies
-              </p>
-            </div>
+        {/* Call to Action */}
+        <div className="text-center mt-16">
+          <div className="inline-block p-6 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mb-8 shadow-2xl hover:scale-110 transition-transform duration-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]">
+            <Rocket className="w-10 h-10 text-white" />
           </div>
-
-          <div className={`group relative text-center p-10 rounded-3xl ${
-            darkMode ? 'bg-gray-800/90 border-gray-600/50' : 'bg-white/95 border-pink-200/50'
-          } backdrop-blur-xl shadow-2xl border ${
-            darkMode ? 'border-gray-600/50' : 'border-pink-200/50'
-          } hover:shadow-3xl transition-all duration-700 hover:-translate-y-8 hover:scale-105 transform-gpu`}>
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-pink-600 to-blue-600 opacity-0 group-hover:opacity-30 transition-opacity duration-700 blur-xl"></div>
-            
-            <div className="relative z-10">
-              <div className="w-20 h-20 bg-gradient-to-r from-pink-600 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl group-hover:scale-110 transition-transform duration-500">
-                <Code className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Full-Stack Development
-              </h3>
-              <p className="text-lg text-white">
-                End-to-end development with modern frameworks and technologies
-              </p>
-            </div>
-          </div>
-
-          <div className={`group relative text-center p-10 rounded-3xl ${
-            darkMode ? 'bg-gray-800/90 border-gray-600/50' : 'bg-white/95 border-blue-200/50'
-          } backdrop-blur-xl shadow-2xl border ${
-            darkMode ? 'border-gray-600/50' : 'border-blue-200/50'
-          } hover:shadow-3xl transition-all duration-700 hover:-translate-y-8 hover:scale-105 transform-gpu`}>
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-30 transition-opacity duration-700 blur-xl"></div>
-            
-            <div className="relative z-10">
-              <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl group-hover:scale-110 transition-transform duration-500">
-                <Cloud className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-4">
-                DevOps & Cloud
-              </h3>
-              <p className="text-lg text-white">
-                Infrastructure automation and cloud-native development expertise
-              </p>
-            </div>
-          </div>
+          <h3 className="text-2xl font-bold text-white mb-4">
+            Always Learning & Growing
+          </h3>
+          <p className="text-gray-300 max-w-2xl mx-auto">
+            Continuously expanding my skill set to stay ahead in the ever-evolving tech landscape
+          </p>
         </div>
       </div>
     </section>

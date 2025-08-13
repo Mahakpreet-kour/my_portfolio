@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Moon, Sun, Github, Mail } from 'lucide-react';
+import { Menu, X, Moon, Sun, Github, Mail, Bot } from 'lucide-react';
 import { useTheme } from './ThemeContext';
 
 const Navigation: React.FC = () => {
   const { darkMode, toggleDarkMode } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showAI, setShowAI] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +31,21 @@ const Navigation: React.FC = () => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const toggleAI = () => {
+    setShowAI(!showAI);
+    // Trigger the AI assistant component
+    const aiAssistant = document.querySelector('#ai-assistant');
+    if (aiAssistant) {
+      if (!showAI) {
+        aiAssistant.classList.remove('hidden');
+        aiAssistant.classList.add('fixed', 'inset-0', 'z-50', 'flex', 'items-center', 'justify-center');
+      } else {
+        aiAssistant.classList.add('hidden');
+        aiAssistant.classList.remove('fixed', 'inset-0', 'z-50', 'flex', 'items-center', 'justify-center');
+      }
     }
   };
 
@@ -67,8 +83,23 @@ const Navigation: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Side - Theme Toggle & Social Links */}
+          {/* Right Side - Theme Toggle, AI Icon & Social Links */}
           <div className="flex items-center space-x-4">
+            {/* AI Assistant Icon */}
+            <button
+              onClick={toggleAI}
+              className={`p-2 rounded-full transition-all duration-300 hover:scale-110 ${
+                showAI
+                  ? 'bg-purple-600 text-white shadow-lg shadow-purple-600/50'
+                  : darkMode 
+                    ? 'text-purple-400 hover:text-purple-300 hover:bg-gray-700' 
+                    : 'text-purple-600 hover:text-purple-700 hover:bg-gray-100'
+              }`}
+              title="Saathi AI - Your AI Companion"
+            >
+              <Bot className="w-5 h-5" />
+            </button>
+
             <button
               onClick={toggleDarkMode}
               className={`p-2 rounded-full transition-colors ${
@@ -138,6 +169,21 @@ const Navigation: React.FC = () => {
               
               {/* Mobile Social Links */}
               <div className="flex space-x-4 px-3 py-2">
+                {/* Mobile AI Icon */}
+                <button
+                  onClick={toggleAI}
+                  className={`p-2 rounded-full transition-all duration-300 hover:scale-110 ${
+                    showAI
+                      ? 'bg-purple-600 text-white shadow-lg shadow-purple-600/50'
+                      : darkMode 
+                        ? 'text-purple-400 hover:text-purple-300 hover:bg-gray-700' 
+                        : 'text-purple-600 hover:text-purple-700 hover:bg-gray-100'
+                  }`}
+                  title="Saathi AI - Your AI Companion"
+                >
+                  <Bot className="w-5 h-5" />
+                </button>
+                
                 <a
                   href="https://github.com/Mahakpreet-kour"
                   target="_blank"

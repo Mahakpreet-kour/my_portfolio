@@ -15,7 +15,7 @@ const AISection: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hi! I'm your AI assistant powered by Gemini 1.5 Flash. Ask me anything about Mahakpreet's skills, projects, or contributions! 🚀",
+      text: "Namaste! I'm Saathi AI, your AI companion powered by Gemini 1.5 Flash. Ask me anything about Mahakpreet's skills, projects, or contributions! 🚀✨",
       isUser: false,
       timestamp: new Date()
     }

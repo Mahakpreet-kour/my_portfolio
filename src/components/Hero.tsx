@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Download, Github, Mail, MessageSquare, ExternalLink, Code, Terminal, Cpu } from 'lucide-react';
+import { ChevronDown, Download, Github, Mail, MessageSquare, ExternalLink, Code, Terminal, Cpu, X } from 'lucide-react';
 import { useTheme } from './ThemeContext';
 import profileImage from '../assets/profile.jpg.jpeg';
 
@@ -8,10 +8,10 @@ const Hero: React.FC = () => {
   const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
+  const [showWelcome, setShowWelcome] = useState(true);
 
   const texts = [
     'AI & ML Engineer',
-    'Full-Stack Developer',
     'DevOps Specialist',
     'UI/UX Enthusiast'
   ];
@@ -48,6 +48,44 @@ const Hero: React.FC = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+      {/* Welcome Message Overlay */}
+      {showWelcome && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
+          <div className="bg-gradient-to-br from-gray-800 via-purple-900 to-violet-900 rounded-3xl p-8 max-w-md mx-auto text-center shadow-2xl border border-purple-500/30 relative animate-scale-in hover:scale-105 transition-transform duration-500">
+            <button
+              onClick={() => setShowWelcome(false)}
+              className="absolute top-4 right-4 p-2 rounded-full bg-gray-700/50 hover:bg-gray-600/50 transition-colors duration-300 hover:scale-110"
+            >
+              <X className="w-5 h-5 text-gray-300" />
+            </button>
+            
+            <div className="mb-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-2xl animate-bounce-subtle">
+                <Code className="w-8 h-8 text-white" />
+              </div>
+              <h2 className="text-2xl font-bold text-white mb-2 animate-fade-in-up">
+                Welcome! 🎉
+              </h2>
+              <h3 className="text-xl font-semibold text-purple-300 mb-2 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                Mahakpreet Kour
+              </h3>
+            </div>
+            
+            <p className="text-gray-300 leading-relaxed mb-6 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+              Excited to have you here! Let's explore my world of innovation together! 🚀✨
+            </p>
+            
+            <button
+              onClick={() => setShowWelcome(false)}
+              className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:from-purple-500 hover:to-pink-500 hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transition-all duration-300 shadow-lg animate-fade-in-up animate-pulse"
+              style={{ animationDelay: '0.6s' }}
+            >
+              Let's Explore! ✨
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Enhanced Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900">
         {/* Animated Grid Pattern */}
@@ -115,7 +153,7 @@ const Hero: React.FC = () => {
               {/* Enhanced Description */}
               <p className="text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0">
                 Passionate about creating innovative solutions using cutting-edge technologies.
-                Specializing in AI/ML, Full-Stack Development, and DevOps.
+                Specializing in AI/ML and DevOps.
             </p>
 
               {/* Enhanced CTA Buttons */}
